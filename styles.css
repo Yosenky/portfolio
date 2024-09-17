@@ -81,6 +81,7 @@ nav ul li a:hover {
     box-shadow: 0 0 20px rgba(255, 0, 255, 0.2);
     position: relative;
     overflow: hidden;
+    z-index: 1; /* Ensure content is on top */
 }
 
 .content::before {
@@ -98,6 +99,7 @@ nav ul li a:hover {
     );
     animation: rotate 10s linear infinite;
     opacity: 0.1;
+    pointer-events: none; /* Allows interaction with content underneath */
 }
 
 @keyframes rotate {
@@ -211,7 +213,7 @@ h1 {
 }
 
 .resume-section ul {
-    list-style-type: none;
+    list-style-type: none; /* No bullet points on top-level items */
     padding-left: 0;
 }
 
@@ -234,6 +236,13 @@ h1 {
 
 .resume-section .resume-item-details {
     margin-top: 0.5em;
+    list-style-type: disc; /* Bullet points for nested list items */
+    padding-left: 1.5em; /* Indent bullet points */
+}
+
+.resume-section .resume-item-details li {
+    margin-bottom: 10px; /* Adds space between each bullet point */
+    font-size: 1rem; /* Adjusts font size */
 }
 
 .resume-section a {
