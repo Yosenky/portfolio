@@ -1,16 +1,15 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jackson McCall - About Me</title>
+    <title>About Me - Jackson McCall</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>About Me</h1>
-        <p></p>
+        <h1>Jackson McCall</h1>
+        <p>Software Engineer & Aspiring Game Developer</p>
     </header>
     <nav>
         <ul>
@@ -23,13 +22,173 @@
         </ul>
     </nav>
     <div class="content">
-        <h2>Welcome to About me!</h2>
-        <p>
+        <section class="resume-section">
+            <h1>Resume</h1>
             
-            
-            
-            
-        </p>
+            <h2>Education</h2>
+            <ul>
+                <li class="resume-item">
+                    <div class="resume-item-header">
+                        <span>Washington University in St. Louis</span>
+                        <span>St. Louis, MO</span>
+                    </div>
+                    <div class="resume-item-subheader">
+                        <span>M.S. in Computer Science</span>
+                        <span>Fall 2024 -- Spring 2025</span>
+                    </div>
+                    <div class="resume-item-subheader">
+                        <span>B.S. in Computer Science, Computer Science GPA: 4.0</span>
+                        <span>Fall 2022 -- Spring 2024</span>
+                    </div>
+                </li>
+                <li class="resume-item">
+                    <div class="resume-item-header">
+                        <span>The University of the South: Sewanee</span>
+                        <span>Sewanee, TN</span>
+                    </div>
+                    <div class="resume-item-subheader">
+                        <span>B.S. in Computer Science, Computer Science GPA: 3.76 (degree conferred 2024)</span>
+                        <span>Fall 2018 -- Spring 2022</span>
+                    </div>
+                </li>
+            </ul>
+
+            <h2>Experience</h2>
+            <ul>
+                <li class="resume-item">
+                    <div class="resume-item-header">
+                        <span>Research and Development Intern</span>
+                        <span>Summer 2024</span>
+                    </div>
+                    <div class="resume-item-subheader">
+                        <span>Kitware Inc.</span>
+                        <span>Minneapolis, MN</span>
+                    </div>
+                    <ul class="resume-item-details">
+                        <li>Completed large-scale refactoring of several open-source codebases to comply with new JATIC protocols</li>
+                        <li>Assisted in refactoring GitLab CI/CD Pipeline into atomic stages to meet new customer requirements</li>
+                        <li>Wrote new interface ImageMetric for the nrtk package <a href="https://github.com/Kitware/nrtk/blob/main/src/nrtk/interfaces/image_metric.py">[Link]</a></li>
+                        <li>Wrote ImageMetric implementation SNRImageMetric with corresponding unit tests <a href="https://github.com/Kitware/nrtk/blob/main/src/nrtk/impls/image_metric/snr_image_metric.py">[Link]</a></li>
+                        <li>Participated in the team's SAFe Scrum process</li>
+                    </ul>
+                </li>
+                <li class="resume-item">
+                    <div class="resume-item-header">
+                        <span>Machine Learning Intern</span>
+                        <span>Summer 2023</span>
+                    </div>
+                    <div class="resume-item-subheader">
+                        <span>NSIN - National Security Innovation Network</span>
+                        <span>Remote</span>
+                    </div>
+                    <ul class="resume-item-details">
+                        <li>Collaborated with a team to create an image classification model (>95% accurate) for the Department of Defense</li>
+                    </ul>
+                </li>
+                <li class="resume-item">
+                    <div class="resume-item-header">
+                        <span>Student Digitization Assistant</span>
+                        <span>Fall 2022 - Present</span>
+                    </div>
+                    <div class="resume-item-subheader">
+                        <span>WashU West Campus Library</span>
+                        <span>St. Louis, MO</span>
+                    </div>
+                    <ul class="resume-item-details">
+                        <li>Assisted digital imaging specialists in creating and processing images of library and special collection materials</li>
+                        <li>Developed Python scripts to assist in optimizing the digitization workflow</li>
+                    </ul>
+                </li>
+                <li class="resume-item">
+                    <div class="resume-item-header">
+                        <span>Research Assistant</span>
+                        <span>Summer 2022</span>
+                    </div>
+                    <div class="resume-item-subheader">
+                        <span>University of the South</span>
+                        <span>Sewanee, TN</span>
+                    </div>
+                    <ul class="resume-item-details">
+                        <li>Contributed to <i>GridMusic</i>, a generative music project, using the Processing programming environment <a href="https://github.com/Yosenky/GridMusic40">[Link]</a></li>
+                        <li>Developed a sound and melody generator using Conway's Game of Life, integrated with <i>GridMusic</i> <a href="https://github.com/Yosenky/GameOfLifeCompositions">[Link]</a></li>
+                        <li>Refactored the codebase to run on Processing 4 (Java)</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h2>Projects</h2>
+            <ul>
+                <li class="resume-item">
+                    <div class="resume-item-header">
+                        <span>Base Defense Roguelike Game <a href="https://github.com/Yosenky/GameOfLifeCompositions">[Link]</a></span>
+                        <span>Fall 2023</span>
+                    </div>
+                    <div class="resume-item-subheader">
+                        <span>Unreal Engine 5</span>
+                    </div>
+                    <ul class="resume-item-details">
+                        <li>Developed a 3rd-person 3D base defense roguelike game with a team for the 2023 WashU Hackathon</li>
+                        <li>Designed the character movement system and melee attack system, also configured appropriate animations</li>
+                    </ul>
+                </li>
+                <li class="resume-item">
+                    <div class="resume-item-header">
+                        <span>Perceptron ML Algorithm <a href="https://github.com/Yosenky/Perceptron-ML-Model">[Link]</a></span>
+                        <span>Spring 2023</span>
+                    </div>
+                    <div class="resume-item-subheader">
+                        <span>Python</span>
+                    </div>
+                    <ul class="resume-item-details">
+                        <li>Created and implemented the perceptron machine learning algorithm from scratch</li>
+                        <li>Implemented batch and sequential training methods, including support for non-linearly separable datasets</li>
+                        <li>Provided analysis on features and effectiveness of the algorithm</li>
+                    </ul>
+                </li>
+                <li class="resume-item">
+                    <div class="resume-item-header">
+                        <span>Space Cowboy Platformer Game <a href="https://github.com/Yosenky/Space-Cowboy-2D-Platformer">[Link]</a></span>
+                        <span>Spring 2022</span>
+                    </div>
+                    <div class="resume-item-subheader">
+                        <span>Unity, C#</span>
+                    </div>
+                    <ul class="resume-item-details">
+                        <li>Collaborated with three friends to create a basic 2D platformer game in Unity</li>
+                        <li>Designed and implemented the final boss: a cactus with radial-spike attacks that increased in speed</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h2>Technical Skills</h2>
+            <ul class="resume-item-details">
+                <li><strong>Languages:</strong> C++, Python, C, C#, x86-64 Assembly, Java, HTML, CSS</li>
+                <li><strong>Frameworks and Libraries:</strong> Unity, Unreal Engine 5, TensorFlow, PyTorch</li>
+                <li><strong>Tools:</strong> Git, GitLab, pytest, CI/CD Pipeline, Docker</li>
+            </ul>
+
+            <h2>Leadership & Extracurricular Activities</h2>
+            <ul>
+                <li class="resume-item">
+                    <div class="resume-item-header">
+                        <span>Captain of WashU Green/Red Collegiate Valorant Team</span>
+                        <span>Fall 2022 - Present</span>
+                    </div>
+                    <ul class="resume-item-details">
+                        <li>Led practices, organized scrims, managed roster changes, and played duelist in the NECC league</li>
+                    </ul>
+                </li>
+                <li class="resume-item">
+                    <div class="resume-item-header">
+                        <span>Co-Founder and Captain of Sewanee PNG Collegiate League of Legends Team</span>
+                        <span>Fall 2020 - Spring 2022</span>
+                    </div>
+                    <ul class="resume-item-details">
+                        <li>Led practices, organized scrims, managed roster changes, and played ADC in the Collegiate Star League</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
     </div>
     <footer>
         <p>&copy; 2024 Jackson McCall. All rights reserved.</p>
