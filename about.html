@@ -5,19 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me - Jackson McCall</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        /* Add styling for the toggle functionality */
-        .resume-content {
-            display: none;
-            transition: all 0.3s ease;
-        }
-        .resume-content.active {
-            display: block;
-        }
-        .resume-title {
-            cursor: pointer;
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -36,10 +23,7 @@
     </nav>
     <div class="content">
         <section class="resume-section">
-            <!-- Toggleable Resume title -->
-            <h1 class="resume-title" onclick="toggleResume()">Resume</h1>
-            
-            <!-- Resume content section -->
+            <h1 class="resume-title" onclick="toggleResume()">Resume<span class="arrow">▼</span></h1>
             <div id="resume-content" class="resume-content">
                 <h2>Education</h2>
                 <ul>
@@ -68,7 +52,6 @@
                         </div>
                     </li>
                 </ul>
-
                 <h2>Experience</h2>
                 <ul>
                     <li class="resume-item">
@@ -131,7 +114,6 @@
                         </ul>
                     </li>
                 </ul>
-
                 <h2>Projects</h2>
                 <ul>
                     <li class="resume-item">
@@ -175,14 +157,12 @@
                         </ul>
                     </li>
                 </ul>
-
                 <h2>Technical Skills</h2>
                 <ul class="resume-item-details">
                     <li><strong>Languages:</strong> C++, Python, C, C#, x86-64 Assembly, Java, HTML, CSS</li>
                     <li><strong>Frameworks and Libraries:</strong> Unity, Unreal Engine 5, TensorFlow, PyTorch</li>
                     <li><strong>Tools:</strong> Git, GitLab, pytest, CI/CD Pipeline, Docker</li>
                 </ul>
-
                 <h2>Leadership & Extracurricular Activities</h2>
                 <ul class="resume-item-details">
                     <li>Captain of WashU Green/Red Collegiate Valorant Team (Fall 2022 - Present)</li>
