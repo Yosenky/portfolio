@@ -73,7 +73,7 @@ nav ul li a:hover {
 }
 
 .content {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 40px auto;
     padding: 30px;
     background-color: var(--content-bg);
@@ -278,4 +278,81 @@ h1 {
 
 .resume-section a:hover {
     text-decoration: underline;
+}
+
+/* Unity Portfolio Styles */
+.portfolio-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.portfolio-item {
+    flex: 0 0 45%;
+    margin-bottom: 40px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    background-color: #f9f9f9;
+}
+
+.portfolio-image, .portfolio-video {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-top: 16px;
+}
+
+.portfolio-item h3 {
+    margin-top: 0;
+}
+
+/* Styles for the toggled sections */
+.info-section {
+    margin-bottom: 20px;
+}
+
+.toggle-box {
+    cursor: pointer;
+    background-color: var(--content-bg);
+    border-radius: 10px;
+    padding: 1em;
+    text-align: center;
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.2);
+}
+
+.info-content {
+    display: none;
+    transition: all 0.3s ease;
+    padding: 1em;
+    background-color: var(--content-bg);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.2);
+}
+
+.info-content.active {
+    display: block;
+}
+
+.resume-preview {
+    max-width: 100px;
+    max-height: 150px;
+    border: 1px solid var(--accent-color);
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+/* Arrow rotation */
+.toggle-box .arrow {
+    font-size: 0.7em;
+    margin-left: 10px;
+    vertical-align: middle;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.info-content.active .arrow {
+    transform: rotate(180deg);
 }
