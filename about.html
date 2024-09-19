@@ -28,9 +28,38 @@
         </ul>
     </nav>
     <div class="content">
+        <!-- Overview Section -->
+        <section class="overview-section">
+            <h1 class="overview-title" onclick="toggleSection('overview')">Overview<span class="arrow">▼</span></h1>
+            <div id="overview-content" class="overview-content">
+                <!-- Overview content goes here -->
+                <p>This is the overview content.</p>
+            </div>
+        </section>
+        
+        <!-- Bio Section -->
+        <section class="bio-section">
+            <h1 class="bio-title" onclick="toggleSection('bio')">Bio<span class="arrow">▼</span></h1>
+            <div id="bio-content" class="bio-content">
+                <!-- Bio content goes here -->
+                <p>This is the bio content.</p>
+            </div>
+        </section>
+        
+        <!-- Education Section -->
+        <section class="education-section">
+            <h1 class="education-title" onclick="toggleSection('education')">Education<span class="arrow">▼</span></h1>
+            <div id="education-content" class="education-content">
+                <!-- Education content goes here -->
+                <p>This is the education content.</p>
+            </div>
+        </section>
+        
+        <!-- Resume Section -->
         <section class="resume-section">
-            <h1 class="resume-title" onclick="toggleResume()">Resume<span class="arrow">▼</span></h1>
+            <h1 class="resume-title" onclick="toggleSection('resume')">Resume<span class="arrow">▼</span></h1>
             <div id="resume-content" class="resume-content">
+                <!-- Resume content as in the original file -->
                 <h2>Education</h2>
                 <ul>
                     <li class="resume-item">

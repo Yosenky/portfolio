@@ -1,10 +1,10 @@
-function toggleResume() {
-    const resumeContent = document.getElementById('resume-content');
-    const resumeTitle = document.querySelector('.resume-title');
+function toggleSection(section) {
+    const content = document.getElementById(`${section}-content`);
+    const title = document.querySelector(`.${section}-title`);
     
-    if (resumeContent) {
-        resumeContent.classList.toggle('active');
-        resumeTitle.classList.toggle('open');
+    if (content) {
+        content.classList.toggle('active');
+        title.classList.toggle('open');
     }
 }
 
