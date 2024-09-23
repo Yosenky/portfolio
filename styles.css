@@ -182,10 +182,6 @@ footer {
     100% { transform: scale(1); }
 }
 
-h1 {
-    animation: pulse 5s infinite;
-}
-
 /* Resume Section Styles */
 .resume-section {
     font-family: 'Roboto', sans-serif;
@@ -355,5 +351,30 @@ h1 {
 }
 
 .info-content.active .arrow {
+    transform: rotate(180deg);
+}
+
+.champion-title {
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.champion-info {
+    font-size: 0.65em; /* Make the text a bit smaller */
+    color: rgba(255, 255, 255, 0.9); /* Same color as title but slightly brighter */
+    margin: 5px 0 2px 0; /* Margin to position the text directly underneath the title */
+    text-align: center;
+    max-width: 95%; /* Extend to most of the width of the box */
+}
+
+.champion-title .arrow {
+    display: inline-block;
+    margin-top: 2px; /* Ensure proper spacing from the subtext */
+}
+
+.champion-title.open .arrow {
     transform: rotate(180deg);
 }

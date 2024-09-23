@@ -32,3 +32,28 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem('headerAnimationState', 'header-animation');
     });
 });
+
+function toggleChampionDetails() {
+    const championContent = document.getElementById('champion-content');
+    const championTitle = document.querySelector('.champion-title');
+
+    if (championContent) {
+        if (championContent.style.display === "none" || championContent.style.display === "") {
+            championContent.style.display = "block";
+            championTitle.querySelector('.arrow').textContent = '▲';
+        } else {
+            championContent.style.display = "none";
+            championTitle.querySelector('.arrow').textContent = '▼';
+        }
+    }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    const championContent = document.getElementById('champion-content');
+    // Automatically open the champion section on page load
+    if (championContent) {
+        championContent.style.display = "block";
+        document.querySelector('.champion-title .arrow').textContent = '▲';
+    }
+});
+
