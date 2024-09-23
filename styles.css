@@ -151,7 +151,7 @@ nav ul li a:hover {
     color: var(--accent-color);
 }
 
-.site-map li:hover {
+site-map li:hover {
     transform: translateX(5px);
 }
 
@@ -182,6 +182,23 @@ footer {
     100% { transform: scale(1); }
 }
 
+/* Arrow rotation and animation */
+.toggle-box .arrow,
+.resume-title .arrow,
+.champion-title .arrow {
+    font-size: 0.7em;
+    margin-left: 10px;
+    vertical-align: middle;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.info-content.active .arrow,
+.resume-title.open .arrow,
+.champion-title.open .arrow {
+    transform: rotate(180deg); /* Rotate the arrow when section is open */
+}
+
 /* Resume Section Styles */
 .resume-section {
     font-family: 'Roboto', sans-serif;
@@ -203,14 +220,6 @@ footer {
     position: relative; /* Allow positioning of child elements */
 }
 
-.resume-section h1 .arrow {
-    font-size: 0.7em;
-    margin-left: 10px;
-    vertical-align: middle;
-    display: inline-block;
-    transition: transform 0.3s ease;
-}
-
 .resume-content {
     display: none;
     transition: all 0.3s ease;
@@ -218,10 +227,6 @@ footer {
 
 .resume-content.active {
     display: block;
-}
-
-.resume-section h1.open .arrow {
-    transform: rotate(180deg); /* Rotate the arrow when section is open */
 }
 
 .resume-title {
@@ -300,7 +305,7 @@ footer {
     margin-top: 16px;
 }
 
-.portfolio-item h3 {
+portolio-item h3 {
     margin-top: 0;
 }
 
@@ -341,23 +346,10 @@ footer {
     margin-top: 10px;
 }
 
-/* Arrow rotation */
-.toggle-box .arrow {
-    font-size: 0.7em;
-    margin-left: 10px;
-    vertical-align: middle;
-    display: inline-block;
-    transition: transform 0.3s ease;
-}
-
-.info-content.active .arrow {
-    transform: rotate(180deg);
-}
-
 .champion-title {
     cursor: pointer;
     text-align: center;
-    display: flex;
+    display: block;
     flex-direction: column;
     align-items: center;
 }
@@ -370,11 +362,10 @@ footer {
     max-width: 95%; /* Extend to most of the width of the box */
 }
 
-.champion-title .arrow {
-    display: inline-block;
-    margin-top: 2px; /* Ensure proper spacing from the subtext */
+#champion-content {
+    display: none; /* Ensure dropdown is closed by default */
 }
 
-.champion-title.open .arrow {
-    transform: rotate(180deg);
+.champion-content.active {
+    display: block; /* Ensure content is displayed when active */
 }
