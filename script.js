@@ -1,27 +1,23 @@
-function toggleSection(section) {
-    const content = document.getElementById(`${section}-content`);
-    const title = document.querySelector(`.${section}-title`);
-    
-    if (content) {
-        content.classList.toggle('active');
-        title.classList.toggle('open');
-    }
-}
+function toggleResume() {
+    const resumeContent = document.getElementById('resume-content');
+    const resumeTitle = document.querySelector('.resume-title');
 
-function toggleContent(section) {
-    const content = document.getElementById(`${section}-content`);
-    const toggleBox = document.querySelector(`.toggle-box.${section}-title`);
-    
-    if (content) {
-        content.classList.toggle('active');
-        if (toggleBox) {
-            toggleBox.classList.toggle('open');
-        }
+    if (resumeContent) {
+        resumeContent.classList.toggle('active');
+        resumeTitle.classList.toggle('open');
     }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
     const header = document.getElementById('main-header');
+    
+    // Automatically open the resume section on page load
+    const resumeContent = document.getElementById('resume-content');
+    const resumeTitle = document.querySelector('.resume-title');
+    if (resumeContent) {
+        resumeContent.classList.add('active');
+        resumeTitle.classList.add('open');
+    }
 
     // Retrieve animation status from local storage
     const animationState = localStorage.getItem('headerAnimationState');

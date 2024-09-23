@@ -28,38 +28,9 @@
         </ul>
     </nav>
     <div class="content">
-        <!-- Overview Section -->
-        <section class="overview-section">
-            <h1 class="overview-title" onclick="toggleSection('overview')">Overview<span class="arrow">▼</span></h1>
-            <div id="overview-content" class="overview-content">
-                <!-- Overview content goes here -->
-                <p>This is the overview content.</p>
-            </div>
-        </section>
-        
-        <!-- Bio Section -->
-        <section class="bio-section">
-            <h1 class="bio-title" onclick="toggleSection('bio')">Bio<span class="arrow">▼</span></h1>
-            <div id="bio-content" class="bio-content">
-                <!-- Bio content goes here -->
-                <p>This is the bio content.</p>
-            </div>
-        </section>
-        
-        <!-- Education Section -->
-        <section class="education-section">
-            <h1 class="education-title" onclick="toggleSection('education')">Education<span class="arrow">▼</span></h1>
-            <div id="education-content" class="education-content">
-                <!-- Education content goes here -->
-                <p>This is the education content.</p>
-            </div>
-        </section>
-        
-        <!-- Resume Section -->
         <section class="resume-section">
-            <h1 class="resume-title" onclick="toggleSection('resume')">Resume<span class="arrow">▼</span></h1>
+            <h1 class="resume-title" onclick="toggleResume()">Resume<span class="arrow">▼</span></h1>
             <div id="resume-content" class="resume-content">
-                <!-- Resume content as in the original file -->
                 <h2>Education</h2>
                 <ul>
                     <li class="resume-item">
@@ -129,7 +100,8 @@
                             <span>St. Louis, MO</span>
                         </div>
                         <ul class="resume-item-details">
-                            <li>Assisted digital imaging specialists in creating and processing images of library and special collection materials</li>
+                            <li>Assist digital imaging specialists with producing and processing high-quality digital images of library and
+                                special collection materials</li>
                             <li>Developed Python scripts to assist in optimizing the digitization workflow</li>
                         </ul>
                     </li>
@@ -146,6 +118,19 @@
                             <li>Contributed to <i>GridMusic</i>, a generative music project, using the Processing programming environment <a href="https://github.com/Yosenky/GridMusic40">[Link]</a></li>
                             <li>Developed a sound and melody generator using Conway's Game of Life, integrated with <i>GridMusic</i> <a href="https://github.com/Yosenky/GameOfLifeCompositions">[Link]</a></li>
                             <li>Refactored the codebase to run on Processing 4 (Java)</li>
+                        </ul>
+                    </li>
+                    <li class="resume-item"></li>
+                        <div class="resume-item-header">
+                            <span>Server</span>
+                            <span>Fall 2016 - Fall 2022</span>
+                        </div>
+                        <div class="resume-item-subheader">
+                            <span>Coosh's Bayou Rouge</span>
+                            <span>Tallahassee, FL</span>
+                        </div>
+                        <ul class="resume-item-details">
+                            <li>Started as busboy, promoted to server/bartender in March of 2018 and had many duties of a manager</li>                    
                         </ul>
                     </li>
                 </ul>
@@ -191,6 +176,18 @@
                             <li>Designed and implemented the final boss: a cactus with radial-spike attacks that increased in speed</li>
                         </ul>
                     </li>
+                    <li class="resume-item"></li>
+                        <div class="resume-item-header">
+                            <span>Flappy Bird <a href="https://yosenky.itch.io/floppy-bird">[Link]</a></span>
+                            <span>Spring 2022</span>
+                        </div>
+                        <div class="resume-item-subheader">
+                            <span>Unity, C#</span>
+                        </div>
+                        <ul class="resume-item-details">
+                            <li>Re-created the mobile game "Flappy Bird" from scratch in Unity</li>
+                        </ul>
+                    </li>
                 </ul>
                 <h2>Technical Skills</h2>
                 <ul class="resume-item-details">
@@ -199,9 +196,27 @@
                     <li><strong>Tools:</strong> Git, GitLab, pytest, CI/CD Pipeline, Docker</li>
                 </ul>
                 <h2>Leadership & Extracurricular Activities</h2>
-                <ul class="resume-item-details">
-                    <li>Captain of WashU Green/Red Collegiate Valorant Team (Fall 2022 - Present)</li>
-                    <li>Co-founder and Captain of Sewanee PNG Collegiate League of Legends Team (Fall 2022 - Present)</li>
+                <ul>
+                    <li class="resume-item">
+                        <div class="resume-item-header">
+                            <span>Captain of WashU Green/Red Collegiate Valorant Team</span>
+                            <span>Fall 2022 - Present</span>
+                        </div>
+                        <ul class="resume-item-details">
+                            <li>Led practices, organized scrims, managed roster changes, and played duelist in the NECC league</li>
+                            <li>Finished 3rd in our conference for the 2022-2023 season</li>
+                        </ul>
+                    </li>
+                    <li class="resume-item">
+                        <div class="resume-item-header">
+                            <span>Co-founder and Captain of Sewanee PNG Collegiate League of Legends Team</span>
+                            <span>Fall 2020 - Spring 2022</span>
+                        </div>
+                        <ul class="resume-item-details">
+                            <li>Led practices, organized scrims, managed roster changes, and played ADC in the Collegiate Star League</li>
+                            <li>Placed in the top 50 schools of the 2021 season for the entire league</li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </section>

@@ -186,11 +186,8 @@ h1 {
     animation: pulse 5s infinite;
 }
 
-/* Common Section Styles */
-.resume-section,
-.overview-section,
-.bio-section,
-.education-section {
+/* Resume Section Styles */
+.resume-section {
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
     color: var(--text-color);
@@ -198,20 +195,19 @@ h1 {
     padding: 2em;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(255, 0, 255, 0.2);
-    margin-bottom: 20px;
 }
 
-.resume-section h1, .overview-section h1, .bio-section h1, .education-section h1 {
+.resume-section h1 {
     font-family: 'Orbitron', sans-serif;
     color: var(--accent-color);
     text-align: center;
-    font-size: 1.5em;
+    font-size: 1.5em; /* Further reduced font size */
     margin-bottom: 0.5em;
-    padding: 0.3em;
-    position: relative;
+    padding: 0.3em; /* Further reduced padding */
+    position: relative; /* Allow positioning of child elements */
 }
 
-.resume-section h1 .arrow, .overview-section h1 .arrow, .bio-section h1 .arrow, .education-section h1 .arrow {
+.resume-section h1 .arrow {
     font-size: 0.7em;
     margin-left: 10px;
     vertical-align: middle;
@@ -219,18 +215,145 @@ h1 {
     transition: transform 0.3s ease;
 }
 
-.resume-content, .overview-content, .bio-content, .education-content {
+.resume-content {
     display: none;
     transition: all 0.3s ease;
 }
 
-.resume-content.active, .overview-content.active, .bio-content.active, .education-content.active {
+.resume-content.active {
     display: block;
 }
 
-.resume-section h1.open .arrow, .overview-section h1.open .arrow, .bio-section h1.open .arrow, .education-section h1.open .arrow {
-    transform: rotate(180deg); /* Rotate the arrow when the section is open */
+.resume-section h1.open .arrow {
+    transform: rotate(180deg); /* Rotate the arrow when section is open */
 }
 
-.resume-title, .overview-title, .bio-title, .education-title {
+.resume-title {
     cursor: pointer;
+}
+
+.resume-section h2 {
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 0.3em;
+    margin-top: 1.5em;
+}
+
+.resume-section ul {
+    list-style-type: none; /* No bullet points on top-level items */
+    padding-left: 0;
+}
+
+.resume-section .resume-item {
+    margin-bottom: 1em;
+}
+
+.resume-section .resume-item-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.resume-section .resume-item-subheader {
+    display: flex;
+    justify-content: space-between;
+    font-style: italic;
+    font-size: 0.9em;
+}
+
+.resume-section .resume-item-details {
+    margin-top: 0.5em;
+    list-style-type: disc; /* Bullet points for nested list items */
+    padding-left: 1.5em; /* Indent bullet points */
+}
+
+.resume-section .resume-item-details li {
+    margin-bottom: 10px; /* Adds space between each bullet point */
+    font-size: 1rem; /* Adjusts font size */
+}
+
+.resume-section a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+.resume-section a:hover {
+    text-decoration: underline;
+}
+
+/* Unity Portfolio Styles */
+.portfolio-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.portfolio-item {
+    flex: 0 0 45%;
+    margin-bottom: 40px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    background-color: #f9f9f9;
+}
+
+.portfolio-image, .portfolio-video {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-top: 16px;
+}
+
+.portfolio-item h3 {
+    margin-top: 0;
+}
+
+/* Styles for the toggled sections */
+.info-section {
+    margin-bottom: 20px;
+}
+
+.toggle-box {
+    cursor: pointer;
+    background-color: var(--content-bg);
+    border-radius: 10px;
+    padding: 1em;
+    text-align: center;
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.2);
+}
+
+.info-content {
+    display: none;
+    transition: all 0.3s ease;
+    padding: 1em;
+    background-color: var(--content-bg);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.2);
+}
+
+.info-content.active {
+    display: block;
+}
+
+.resume-preview {
+    max-width: 100px;
+    max-height: 150px;
+    border: 1px solid var(--accent-color);
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+/* Arrow rotation */
+.toggle-box .arrow {
+    font-size: 0.7em;
+    margin-left: 10px;
+    vertical-align: middle;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.info-content.active .arrow {
+    transform: rotate(180deg);
+}
