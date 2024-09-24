@@ -30,7 +30,7 @@ header {
     box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
 }
 
-h1, h2, h3 {
+h1, h2 {
     font-family: 'Orbitron', sans-serif;
     color: var(--accent-color);
     text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
@@ -81,13 +81,7 @@ nav ul li a:hover {
     box-shadow: 0 0 20px rgba(255, 0, 255, 0.2);
     position: relative;
     overflow: hidden;
-    z-index: 1; /* Ensure content is on top */
-}
-
-@keyframes rotate {
-    100% {
-        transform: rotate(360deg);
-    }
+    z-index: 1;
 }
 
 .contact-links {
@@ -124,27 +118,22 @@ nav ul li a:hover {
     box-shadow: 0 0 20px rgba(255, 0, 255, 0.2);
 }
 
-.resume-section h1 {
-    font-family: 'Orbitron', sans-serif;
-    color: var(--accent-color);
+.resume-title {
+    cursor: pointer;
     text-align: center;
-    font-size: 1.5em; /* Further reduced font size */
+    font-size: 1.5em;
     margin-bottom: 0.5em;
-    padding: 0.3em; /* Further reduced padding */
-    position: relative; /* Allow positioning of child elements */
-}
-
-.resume-content {
-    display: none;
-    transition: all 0.3s ease;
+    padding: 0.3em;
+    position: relative;
 }
 
 .resume-content.active {
     display: block;
 }
 
-.resume-title {
-    cursor: pointer;
+.resume-content {
+    display: none;
+    transition: all 0.3s ease;
 }
 
 .resume-section h2 {
@@ -155,7 +144,7 @@ nav ul li a:hover {
 }
 
 .resume-section ul {
-    list-style-type: none; /* No bullet points on top-level items */
+    list-style-type: none;
     padding-left: 0;
 }
 
@@ -178,13 +167,13 @@ nav ul li a:hover {
 
 .resume-section .resume-item-details {
     margin-top: 0.5em;
-    list-style-type: disc; /* Bullet points for nested list items */
-    padding-left: 1.5em; /* Indent bullet points */
+    list-style-type: disc;
+    padding-left: 1.5em;
 }
 
 .resume-section .resume-item-details li {
-    margin-bottom: 10px; /* Adds space between each bullet point */
-    font-size: 1rem; /* Adjusts font size */
+    margin-bottom: 10px;
+    font-size: 1rem;
 }
 
 .resume-section a {
@@ -196,24 +185,7 @@ nav ul li a:hover {
     text-decoration: underline;
 }
 
-footer {
-    text-align: center;
-    margin-top: 40px;
-    padding: 20px;
-    background-color: var(--header-bg);
-    color: var(--text-color);
-    border-top: 2px solid var(--secondary-accent);
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
-}
-
-.toggle-box .arrow,
-.resume-title .arrow,
-.champion-title .arrow {
+.resume-title .arrow {
     font-size: 0.7em;
     margin-left: 10px;
     vertical-align: middle;
@@ -221,8 +193,6 @@ footer {
     transition: transform 0.3s ease;
 }
 
-.info-content.active .arrow,
-.resume-title.open .arrow,
-.champion-title.open .arrow {
-    transform: rotate(180deg); /* Rotate the arrow when section is open */
+.resume-title.open .arrow {
+    transform: rotate(180deg);
 }

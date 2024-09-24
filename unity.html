@@ -30,26 +30,53 @@
     </nav>
     <div class="content">
         <h2>Unity Game Development Portfolio</h2>
+        <div id="project-nav">
+            <div class="dropdown">
+                <button class="dropbtn" onclick="showProject('project1')">Project 1</button>
+                <button class="dropbtn" onclick="showProject('project2')">Project 2</button>
+                <button class="dropbtn" onclick="showProject('project3')">Project 3</button>
+            </div>
+        </div>
         <div class="portfolio-section">
-            <div class="portfolio-item">
+            <div class="portfolio-item" id="project1">
                 <h3>Project Title 1</h3>
-                <p>Brief description of the project and what it entails. Explain the main goal and functionalities of the game.</p>
-                <img src="path/to/image1.jpg" alt="Game Screenshot 1" class="portfolio-image">
+                <p>A brief description of the project and what it entails. Explain the main goal and functionalities of the game.</p>
+                <div class="scrollable-screenshots">
+                    <img src="path/to/screenshot1.jpg" alt="Screenshot 1">
+                    <img src="path/to/screenshot2.jpg" alt="Screenshot 2">
+                    <img src="path/to/screenshot3.jpg" alt="Screenshot 3">
+                </div>
                 <video controls class="portfolio-video">
                     <source src="path/to/video1.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
-            <div class="portfolio-item">
+            <div class="portfolio-item" id="project2">
                 <h3>Project Title 2</h3>
-                <p>Brief description of the project and what it entails. Explain the main goal and functionalities of the game.</p>
-                <img src="path/to/image2.jpg" alt="Game Screenshot 2" class="portfolio-image">
+                <p>A brief description of the project and what it entails. Explain the main goal and functionalities of the game.</p>
+                <div class="scrollable-screenshots">
+                    <img src="path/to/screenshot1.jpg" alt="Screenshot 1">
+                    <img src="path/to/screenshot2.jpg" alt="Screenshot 2">
+                    <img src="path/to/screenshot3.jpg" alt="Screenshot 3">
+                </div>
                 <video controls class="portfolio-video">
                     <source src="path/to/video2.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
-            <!-- Add more portfolio items as needed -->
+            <div class="portfolio-item" id="project3">
+                <h3>Project Title 3</h3>
+                <p>A brief description of the project and what it entails. Explain the main goal and functionalities of the game.</p>
+                <div class="scrollable-screenshots">
+                    <img src="path/to/screenshot1.jpg" alt="Screenshot 1">
+                    <img src="path/to/screenshot2.jpg" alt="Screenshot 2">
+                    <img src="path/to/screenshot3.jpg" alt="Screenshot 3">
+                </div>
+                <video controls class="portfolio-video">
+                    <source src="path/to/video3.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
         </div>
     </div>
     <footer>
