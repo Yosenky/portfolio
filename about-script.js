@@ -22,12 +22,6 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener('beforeunload', () => {
         localStorage.setItem('headerAnimationState', 'header-animation');
     });
-
-    // Ensure champion section is closed by default and set the correct arrow direction
-    const championTitle = document.querySelector('.champion-title');
-    if (championTitle) {
-        championTitle.querySelector('.arrow').style.transform = 'rotate(0deg)';
-    }
 });
 
 function toggleResume() {
@@ -42,21 +36,6 @@ function toggleResume() {
             arrow.style.transform = 'rotate(180deg)';
         } else {
             arrow.style.transform = 'rotate(0deg)';
-        }
-    }
-}
-
-function toggleChampionDetails() {
-    const championContent = document.getElementById('champion-content');
-    const championTitle = document.querySelector('.champion-title');
-
-    if (championContent) {
-        if (championContent.style.display === "none" || championContent.style.display === "") {
-            championContent.style.display = "block";
-            championTitle.querySelector('.arrow').style.transform = 'rotate(180deg)';
-        } else {
-            championContent.style.display = "none";
-            championTitle.querySelector('.arrow').style.transform = 'rotate(0deg)';
         }
     }
 }
