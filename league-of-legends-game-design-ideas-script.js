@@ -21,11 +21,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function toggleChampionDetails(id) {
     const allContent = document.querySelectorAll('.champion-details');
+    const allTitles = document.querySelectorAll('.champion-title');
+
     allContent.forEach(content => {
         if (content.id === id) {
             content.style.display = content.style.display === "block" ? "none" : "block";
         } else {
             content.style.display = "none";
+        }
+    });
+
+    allTitles.forEach(title => {
+        const relatedContentId = title.getAttribute('onclick').match(/'(.*?)'/)[1];
+        if (relatedContentId === id && document.getElementById(id).style.display === "block") {
+            title.classList.add('selected');
+        } else {
+            title.classList.remove('selected');
         }
     });
 }
