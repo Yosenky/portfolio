@@ -1,5 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
     const header = document.getElementById('main-header');
+    const allContent = document.querySelectorAll('.champion-details');
+
+    // Hide all champion details by default
+    allContent.forEach(content => content.style.display = 'none');
 
     // Retrieve animation status from local storage
     const animationState = localStorage.getItem('headerAnimationState');
@@ -15,17 +19,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-function toggleChampionDetails() {
-    const championContent = document.getElementById('champion-content');
-    const championTitle = document.querySelector('.champion-title');
-
-    if (championContent) {
-        if (championContent.style.display === "none" || championContent.style.display === "") {
-            championContent.style.display = "block";
-            championTitle.querySelector('.arrow').style.transform = 'rotate(180deg)';
+function toggleChampionDetails(id) {
+    const allContent = document.querySelectorAll('.champion-details');
+    allContent.forEach(content => {
+        if (content.id === id) {
+            content.style.display = content.style.display === "block" ? "none" : "block";
         } else {
-            championContent.style.display = "none";
-            championTitle.querySelector('.arrow').style.transform = 'rotate(0deg)';
+            content.style.display = "none";
         }
-    }
+    });
 }

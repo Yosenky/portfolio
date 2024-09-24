@@ -8,6 +8,8 @@
     --header-bg: #1a1a1a;
     --content-bg: #1e1e1e;
     --link-color: #4de9e9;
+    --hover-bg-color: #333333;
+    --hover-border-color: #999999;
 }
 
 body {
@@ -73,15 +75,66 @@ nav ul li a:hover {
 }
 
 .content {
+    display: flex;
     max-width: 1200px;
     margin: 40px auto;
     padding: 30px;
     background-color: var(--content-bg);
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(255, 0, 255, 0.2);
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
+}
+
+.champion-list {
+    flex: 0 0 30%;
+    max-width: 30%;
+    padding-right: 20px;
+    border-right: 2px solid var(--accent-color);
+    position: sticky;
+    top: 80px; /* or some appropriate value to accommodate the nav height */
+    height: calc(100vh - 80px); /* Adjust based on header/nav height */
+    overflow-y: auto;
+}
+
+.champion-title {
+    cursor: pointer;
+    text-align: left;
+    display: block;
+    margin-bottom: 20px;
+    background-color: #222222;
+    border: 2px solid var(--accent-color);
+    border-radius: 5px;
+    padding: 10px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.champion-title:hover {
+    background-color: var(--hover-bg-color);
+    border-color: var(--hover-border-color);
+}
+
+.champion-info {
+    font-size: 0.85em;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 5px 0;
+    text-align: left;
+}
+
+.champion-details {
+    flex: 1;
+    padding-left: 20px;
+}
+
+#champion-content {
+    display: none; /* Ensure dropdown is closed by default */
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: var(--header-bg);
+    color: var(--text-color);
+    border-top: 2px solid var(--secondary-accent);
 }
 
 .contact-links {
@@ -106,53 +159,4 @@ nav ul li a:hover {
     background-color: var(--accent-color);
     color: var(--bg-color);
     box-shadow: 0 0 10px var(--accent-color);
-}
-
-.champion-title {
-    cursor: pointer;
-    text-align: center;
-    display: block;
-    flex-direction: column;
-    align-items: center;
-}
-
-.champion-info {
-    font-size: 0.65em;
-    color: rgba(255, 255, 255, 0.9);
-    margin: 5px 0 2px 0;
-    text-align: center;
-    max-width: 95%;
-}
-
-#champion-content {
-    display: none; /* Ensure dropdown is closed by default */
-}
-
-.champion-content.active {
-    display: block; /* Ensure content is displayed when active */
-}
-
-footer {
-    text-align: center;
-    margin-top: 40px;
-    padding: 20px;
-    background-color: var(--header-bg);
-    color: var(--text-color);
-    border-top: 2px solid var(--secondary-accent);
-}
-
-.toggle-box .arrow,
-.resume-title .arrow,
-.champion-title .arrow {
-    font-size: 0.7em;
-    margin-left: 10px;
-    vertical-align: middle;
-    display: inline-block;
-    transition: transform 0.3s ease;
-}
-
-.info-content.active .arrow,
-.resume-title.open .arrow,
-.champion-title.open .arrow {
-    transform: rotate(180deg); /* Rotate the arrow when section is open */
 }
