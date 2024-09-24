@@ -84,24 +84,6 @@ nav ul li a:hover {
     z-index: 1; /* Ensure content is on top */
 }
 
-.content::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: conic-gradient(
-        from 0deg at 50% 50%,
-        transparent 0deg,
-        var(--secondary-accent) 60deg,
-        transparent 120deg
-    );
-    animation: rotate 10s linear infinite;
-    opacity: 0.1;
-    pointer-events: none; /* Allows interaction with content underneath */
-}
-
 @keyframes rotate {
     100% {
         transform: rotate(360deg);
@@ -132,74 +114,6 @@ nav ul li a:hover {
     box-shadow: 0 0 10px var(--accent-color);
 }
 
-.site-map {
-    list-style-type: none;
-    padding-left: 20px;
-    border-left: 2px solid var(--accent-color);
-}
-
-.site-map li {
-    margin-bottom: 15px;
-    transition: transform 0.3s ease;
-    position: relative;
-}
-
-.site-map li::before {
-    content: '>';
-    position: absolute;
-    left: -20px;
-    color: var(--accent-color);
-}
-
-site-map li:hover {
-    transform: translateX(5px);
-}
-
-.site-map a {
-    color: var(--link-color);
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.3s ease;
-}
-
-.site-map a:hover {
-    text-shadow: 0 0 10px var(--accent-color);
-    color: #ffffff;
-}
-
-footer {
-    text-align: center;
-    margin-top: 40px;
-    padding: 20px;
-    background-color: var(--header-bg);
-    color: var(--text-color);
-    border-top: 2px solid var(--secondary-accent);
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
-}
-
-/* Arrow rotation and animation */
-.toggle-box .arrow,
-.resume-title .arrow,
-.champion-title .arrow {
-    font-size: 0.7em;
-    margin-left: 10px;
-    vertical-align: middle;
-    display: inline-block;
-    transition: transform 0.3s ease;
-}
-
-.info-content.active .arrow,
-.resume-title.open .arrow,
-.champion-title.open .arrow {
-    transform: rotate(180deg); /* Rotate the arrow when section is open */
-}
-
-/* Resume Section Styles */
 .resume-section {
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
@@ -282,90 +196,33 @@ footer {
     text-decoration: underline;
 }
 
-/* Unity Portfolio Styles */
-.portfolio-section {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-
-.portfolio-item {
-    flex: 0 0 45%;
-    margin-bottom: 40px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 16px;
-    background-color: #f9f9f9;
-}
-
-.portfolio-image, .portfolio-video {
-    width: 100%;
-    height: auto;
-    border-radius: 4px;
-    margin-top: 16px;
-}
-
-portolio-item h3 {
-    margin-top: 0;
-}
-
-/* Styles for the toggled sections */
-.info-section {
-    margin-bottom: 20px;
-}
-
-.toggle-box {
-    cursor: pointer;
-    background-color: var(--content-bg);
-    border-radius: 10px;
-    padding: 1em;
+footer {
     text-align: center;
-    font-size: 1.5em;
-    margin-bottom: 0.5em;
-    box-shadow: 0 0 20px rgba(255, 0, 255, 0.2);
+    margin-top: 40px;
+    padding: 20px;
+    background-color: var(--header-bg);
+    color: var(--text-color);
+    border-top: 2px solid var(--secondary-accent);
 }
 
-.info-content {
-    display: none;
-    transition: all 0.3s ease;
-    padding: 1em;
-    background-color: var(--content-bg);
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(255, 0, 255, 0.2);
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
 }
 
-.info-content.active {
-    display: block;
+.toggle-box .arrow,
+.resume-title .arrow,
+.champion-title .arrow {
+    font-size: 0.7em;
+    margin-left: 10px;
+    vertical-align: middle;
+    display: inline-block;
+    transition: transform 0.3s ease;
 }
 
-.resume-preview {
-    max-width: 100px;
-    max-height: 150px;
-    border: 1px solid var(--accent-color);
-    border-radius: 5px;
-    margin-top: 10px;
-}
-
-.champion-title {
-    cursor: pointer;
-    text-align: center;
-    display: block;
-    flex-direction: column;
-    align-items: center;
-}
-
-.champion-info {
-    font-size: 0.65em; /* Make the text a bit smaller */
-    color: rgba(255, 255, 255, 0.9); /* Same color as title but slightly brighter */
-    margin: 5px 0 2px 0; /* Margin to position the text directly underneath the title */
-    text-align: center;
-    max-width: 95%; /* Extend to most of the width of the box */
-}
-
-#champion-content {
-    display: none; /* Ensure dropdown is closed by default */
-}
-
-.champion-content.active {
-    display: block; /* Ensure content is displayed when active */
+.info-content.active .arrow,
+.resume-title.open .arrow,
+.champion-title.open .arrow {
+    transform: rotate(180deg); /* Rotate the arrow when section is open */
 }
