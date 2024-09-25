@@ -1,30 +1,24 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const header = document.getElementById('main-header');
-
-    // Open default project on page load
-    showProject('project1');
-
-    // Retrieve animation status from local storage
-    const animationState = localStorage.getItem('headerAnimationState');
-
-    // If there's a saved state, apply it
-    if (animationState) {
-        header.classList.add(animationState);
-    }
-
-    // Save the animation state when the page is about to be unloaded
-    window.addEventListener('beforeunload', () => {
-        localStorage.setItem('headerAnimationState', 'header-animation');
+document.addEventListener('DOMContentLoaded', () => {
+    const projectTitles = document.querySelectorAll('.project-title');
+    
+    projectTitles.forEach(title => {
+        title.addEventListener('click', () => {
+            projectTitles.forEach(item => item.classList.remove('selected'));
+            title.classList.add('selected');
+        });
     });
+    
+    // Initially select Project A
+    document.querySelector('.project-title.selected').click();
 });
 
-function showProject(projectId) {
-    const projects = document.querySelectorAll('.portfolio-item');
-    projects.forEach(project => {
-        if (project.id === projectId) {
-            project.classList.add('active');
+function toggleProjectDetails(projectId) {
+    const projectDetails = document.querySelectorAll('.project-details');
+    projectDetails.forEach(detail => {
+        if (detail.id === projectId) {
+            detail.style.display = 'block';
         } else {
-            project.classList.remove('active');
+            detail.style.display = 'none';
         }
     });
 }

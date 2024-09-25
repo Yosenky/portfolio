@@ -8,6 +8,11 @@
     --header-bg: #1a1a1a;
     --content-bg: #1e1e1e;
     --link-color: #4de9e9;
+    --hover-bg-color: #333333;
+    --hover-border-color: #00ffff;
+    --selected-bg-color: #2a2a2a;
+    --selected-border-color: #ff00ff;
+    --selection-animation-duration: 0.3s;
 }
 
 body {
@@ -34,6 +39,30 @@ h1, h2 {
     font-family: 'Orbitron', sans-serif;
     color: var(--accent-color);
     text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.contact-links {
+    font-size: 0.9em;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.contact-links a {
+    color: var(--accent-color);
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 5px 10px;
+    border: 1px solid var(--accent-color);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.contact-links a:hover {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    box-shadow: 0 0 10px var(--accent-color);
 }
 
 nav {
@@ -73,39 +102,64 @@ nav ul li a:hover {
 }
 
 .content {
+    display: flex;
     max-width: 1200px;
     margin: 40px auto;
     padding: 30px;
     background-color: var(--content-bg);
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(255, 0, 255, 0.2);
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
 }
 
-.contact-links {
-    font-size: 0.9em;
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+.project-list {
+    flex: 0 0 30%;
+    max-width: 30%;
+    padding-right: 20px;
+    border-right: 2px solid var(--accent-color);
+    position: sticky;
+    top: 80px; /* Adjust based on header/nav height */
+    height: calc(100vh - 80px); /* Adjust based on header/nav height */
+    overflow-y: auto;
 }
 
-.contact-links a {
-    color: var(--accent-color);
-    text-decoration: none;
-    margin: 0 10px;
-    padding: 5px 10px;
-    border: 1px solid var(--accent-color);
-    border-radius: 20px;
-    transition: all 0.3s ease;
+.project-title {
+    cursor: pointer;
+    text-align: left;
+    display: block;
+    margin-bottom: 20px;
+    background-color: #222222;
+    border: 2px solid var(--accent-color);
+    border-radius: 10px; /* Rounded corners */
+    padding: 15px; /* More padding for better clickability */
+    transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.3s;
 }
 
-.contact-links a:hover {
-    background-color: var(--accent-color);
-    color: var(--bg-color);
-    box-shadow: 0 0 10px var(--accent-color);
+.project-title:hover {
+    background-color: var(--hover-bg-color);
+    border-color: var(--hover-border-color);
+    transform: translateY(-2px); /* Slight lift on hover */
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.3); /* Shadow effect on hover */
+}
+
+.project-title.selected {
+    background-color: var(--selected-bg-color);
+    border-color: var(--selected-border-color);
+    border-width: 3px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5); /* Enhanced shadow */
+    animation: none; /* Ensure no arrow animation */
+}
+
+.project-info {
+    font-size: 0.85em;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 5px 0 0 0; /* Separate the description from the name */
+    padding-top: 5px;
+    border-top: 1px solid var(--accent-color);
+}
+
+.project-details {
+    flex: 1;
+    padding-left: 20px;
 }
 
 .resume-section {
@@ -113,86 +167,90 @@ nav ul li a:hover {
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--content-bg);
-    padding: 2em;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(255, 0, 255, 0.2);
 }
 
-.resume-title {
-    cursor: pointer;
+.resume-header {
     text-align: center;
-    font-size: 1.5em;
-    margin-bottom: 0.5em;
-    padding: 0.3em;
-    position: relative;
+    margin-bottom: 30px;
 }
 
-.resume-content.active {
-    display: block;
-}
-
-.resume-content {
-    display: none;
-    transition: all 0.3s ease;
+.resume-header h1 {
+    font-family: 'Orbitron', sans-serif;
+    margin: 0;
+    font-size: 2rem;
+    color: var(--accent-color);
 }
 
 .resume-section h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.25rem;
     color: var(--accent-color);
+    text-transform: uppercase;
+    margin-top: 30px;
     border-bottom: 2px solid var(--accent-color);
-    padding-bottom: 0.3em;
-    margin-top: 1.5em;
+    padding-bottom: 5px;
 }
 
-.resume-section ul {
+ul {
     list-style-type: none;
-    padding-left: 0;
+    padding: 0;
 }
 
-.resume-section .resume-item {
+.resume-section ul li {
     margin-bottom: 1em;
 }
 
-.resume-section .resume-item-header {
+.resume-item-header {
     display: flex;
     justify-content: space-between;
     font-weight: bold;
+    font-size: 1.1em;
 }
 
-.resume-section .resume-item-subheader {
+.resume-item-header a {
+    color: var(--link-color);
+    text-decoration: underline; /* Ensure the project links look clickable */
+    font-weight: bold;
+}
+
+.resume-item-header a:hover {
+    text-decoration: underline;
+    color: #ffffff; /* Change color on hover to enhance visibility */
+}
+
+.resume-item-subheader {
     display: flex;
     justify-content: space-between;
     font-style: italic;
     font-size: 0.9em;
+    margin-top: 0.2em;
 }
 
-.resume-section .resume-item-details {
+.resume-item-details {
     margin-top: 0.5em;
-    list-style-type: disc;
-    padding-left: 1.5em;
-}
-
-.resume-section .resume-item-details li {
-    margin-bottom: 10px;
+    padding-left: 1.2em;
     font-size: 1rem;
+    list-style-type: disc;
 }
 
-.resume-section a {
+.resume-item-details li {
+    margin-bottom: 5px;
+}
+
+.resume-item-details a {
     color: var(--link-color);
-    text-decoration: none;
-}
-
-.resume-section a:hover {
     text-decoration: underline;
 }
 
-.resume-title .arrow {
-    font-size: 0.7em;
-    margin-left: 10px;
-    vertical-align: middle;
-    display: inline-block;
-    transition: transform 0.3s ease;
+.resume-item-details a:hover {
+    text-decoration: none;
 }
 
-.resume-title.open .arrow {
-    transform: rotate(180deg);
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: var(--header-bg);
+    color: var(--text-color);
+    border-top: 2px solid var(--secondary-accent);
 }

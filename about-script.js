@@ -1,23 +1,14 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const resumeContent = document.getElementById('resume-content');
-    const resumeTitle = document.querySelector('.resume-title');
-    resumeContent.classList.add('active');
-    resumeTitle.classList.add('open');
-    resumeTitle.querySelector('.arrow').style.transform = 'rotate(180deg)';
+document.addEventListener('DOMContentLoaded', () => {
+    const projectTitles = document.querySelectorAll('.project-title');
+    
+    projectTitles.forEach(title => {
+        title.addEventListener('click', (event) => {
+            event.preventDefault(); // Prevent default anchor behavior
+            projectTitles.forEach(item => item.classList.remove('selected'));
+            title.classList.add('selected');
+        });
+    });
+    
+    // Ensure Resume is selected on load
+    document.querySelector('.project-title.selected').classList.add('selected');
 });
-
-function toggleResume() {
-    const resumeContent = document.getElementById('resume-content');
-    const resumeTitle = document.querySelector('.resume-title');
-
-    if (resumeContent) {
-        resumeContent.classList.toggle('active');
-        resumeTitle.classList.toggle('open');
-        const arrow = resumeTitle.querySelector('.arrow');
-        if (resumeContent.classList.contains('active')) {
-            arrow.style.transform = 'rotate(180deg)';
-        } else {
-            arrow.style.transform = 'rotate(0deg)';
-        }
-    }
-}

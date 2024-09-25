@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jackson McCall - Unity Portfolio</title>
+    <title>Jackson McCall - Unity Projects</title>
     <link rel="stylesheet" href="unity-styles.css">
-    <script src="unity-script.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header id="main-header" class="header-animation">
+    <header>
         <h1>Jackson McCall</h1>
         <p>Software Engineer & Aspiring Game Developer</p>
         <div class="contact-links">
@@ -29,58 +29,63 @@
         </ul>
     </nav>
     <div class="content">
-        <h2>Unity Game Development Portfolio</h2>
-        <div id="project-nav">
-            <div class="dropdown">
-                <button class="dropbtn" onclick="showProject('project1')">Project 1</button>
-                <button class="dropbtn" onclick="showProject('project2')">Project 2</button>
-                <button class="dropbtn" onclick="showProject('project3')">Project 3</button>
+        <aside class="project-list">
+            <div class="project-title selected" onclick="toggleProjectDetails('projectA-content')">
+                <h1>Project A: The Beginning</h1>
+                <p class="project-info">A Unity project exploring basic game mechanics and concepts.</p>
             </div>
-        </div>
-        <div class="portfolio-section">
-            <div class="portfolio-item" id="project1">
-                <h3>Project Title 1</h3>
-                <p>A brief description of the project and what it entails. Explain the main goal and functionalities of the game.</p>
-                <div class="scrollable-screenshots">
-                    <img src="path/to/screenshot1.jpg" alt="Screenshot 1">
-                    <img src="path/to/screenshot2.jpg" alt="Screenshot 2">
-                    <img src="path/to/screenshot3.jpg" alt="Screenshot 3">
-                </div>
-                <video controls class="portfolio-video">
-                    <source src="path/to/video1.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+            <div class="project-title" onclick="toggleProjectDetails('projectB-content')">
+                <h1>Project B: Adventures</h1>
+                <p class="project-info">An adventure game with complex AI and narrative-driven gameplay.</p>
             </div>
-            <div class="portfolio-item" id="project2">
-                <h3>Project Title 2</h3>
-                <p>A brief description of the project and what it entails. Explain the main goal and functionalities of the game.</p>
-                <div class="scrollable-screenshots">
-                    <img src="path/to/screenshot1.jpg" alt="Screenshot 1">
-                    <img src="path/to/screenshot2.jpg" alt="Screenshot 2">
-                    <img src="path/to/screenshot3.jpg" alt="Screenshot 3">
-                </div>
-                <video controls class="portfolio-video">
-                    <source src="path/to/video2.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+        </aside>
+        <section id="projectA-content" class="project-details" style="display: block;">
+            <div class="project-header">
+                <h1>Project A: The Beginning</h1>
+                <p class="project-description">A Unity project exploring basic game mechanics and concepts.</p>
+                <hr class="project-separator">
             </div>
-            <div class="portfolio-item" id="project3">
-                <h3>Project Title 3</h3>
-                <p>A brief description of the project and what it entails. Explain the main goal and functionalities of the game.</p>
-                <div class="scrollable-screenshots">
-                    <img src="path/to/screenshot1.jpg" alt="Screenshot 1">
-                    <img src="path/to/screenshot2.jpg" alt="Screenshot 2">
-                    <img src="path/to/screenshot3.jpg" alt="Screenshot 3">
-                </div>
-                <video controls class="portfolio-video">
-                    <source src="path/to/video3.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+            <div class="project-info">
+                <h3>Overview</h3>
+                <p>This project introduces fundamental game development techniques using Unity, from character movement to basic interactions.</p>
+
+                <h3>Features</h3>
+                <ul>
+                    <li>Character Movement</li>
+                    <li>Simple AI</li>
+                    <li>Basic Combat System</li>
+                </ul>
+
+                <h3>Technology</h3>
+                <p>Unity, C#, Blender for basic models.</p>
             </div>
-        </div>
+        </section>
+        
+        <section id="projectB-content" class="project-details" style="display: none;">
+            <div class="project-header">
+                <h1>Project B: Adventures</h1>
+                <p class="project-description">An adventure game with complex AI and narrative-driven gameplay.</p>
+                <hr class="project-separator">
+            </div>
+            <div class="project-info">
+                <h3>Overview</h3>
+                <p>This project focuses on creating an immersive adventure game, incorporating storytelling and advanced AI.</p>
+
+                <h3>Features</h3>
+                <ul>
+                    <li>Complex AI</li>
+                    <li>Story-driven Campaign</li>
+                    <li>Interactive Environments</li>
+                </ul>
+
+                <h3>Technology</h3>
+                <p>Unity, C#, Maya for detailed models, and Custom Audio.</p>
+            </div>
+        </section>
     </div>
     <footer>
         <p>&copy; 2024 Jackson McCall. All rights reserved.</p>
     </footer>
+    <script src="unity-script.js"></script>
 </body>
 </html>

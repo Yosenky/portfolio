@@ -1,16 +1,27 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const header = document.getElementById('main-header');
+function toggleProjectDetails(projectId) {
+    // Get all project detail elements
+    const projectDetails = document.querySelectorAll('.project-details');
 
-    // Retrieve animation status from local storage
-    const animationState = localStorage.getItem('headerAnimationState');
+    // Hide all project details
+    projectDetails.forEach(detail => {
+        detail.style.display = 'none';
+    });
 
-    // If there's a saved state, apply it
-    if (animationState) {
-        header.classList.add(animationState);
+    // Show the selected project detail
+    var selectedProject = document.getElementById(projectId);
+    if(selectedProject) {
+        selectedProject.style.display = 'block';
     }
 
-    // Save the animation state when the page is about to be unloaded
-    window.addEventListener('beforeunload', () => {
-        localStorage.setItem('headerAnimationState', 'header-animation');
+    // Remove 'selected' class from all project titles
+    const projectTitles = document.querySelectorAll('.project-title');
+    projectTitles.forEach(title => {
+        title.classList.remove('selected');
     });
-});
+
+    // Add 'selected' class to the clicked project title
+    const clickedTitle = document.querySelector(`[onclick="toggleProjectDetails('${projectId}')"]`);
+    if(clickedTitle) {
+        clickedTitle.classList.add('selected');
+    }
+}

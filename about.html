@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me - Jackson McCall</title>
     <link rel="stylesheet" href="about-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -28,14 +29,22 @@
         </ul>
     </nav>
     <div class="content">
-        <section class="resume-section">
-            <h1 class="resume-title" onclick="toggleResume()">Resume<span class="arrow">▼</span></h1>
-            <div id="resume-content" class="resume-content active">
+        <aside class="project-list">
+            <div class="project-title selected">
+                <h1>Resume</h1>
+                <p class="project-info">My professional resume detailing my education, experience, projects, and skills.</p>
+            </div>
+        </aside>
+        <section id="resume-content" class="project-details" style="display: block;">
+            <div class="resume-section">
+                <div class="resume-header">
+                    <h1>Resume</h1>
+                </div>
                 <h2>Education</h2>
                 <ul>
                     <li class="resume-item">
                         <div class="resume-item-header">
-                            <span>Washington University in St. Louis</span>
+                            Washington University in St. Louis
                             <span>St. Louis, MO</span>
                         </div>
                         <div class="resume-item-subheader">
@@ -49,7 +58,7 @@
                     </li>
                     <li class="resume-item">
                         <div class="resume-item-header">
-                            <span>The University of the South: Sewanee</span>
+                            The University of the South: Sewanee
                             <span>Sewanee, TN</span>
                         </div>
                         <div class="resume-item-subheader">
@@ -62,7 +71,7 @@
                 <ul>
                     <li class="resume-item">
                         <div class="resume-item-header">
-                            <span>Research and Development Intern</span>
+                            Research and Development Intern
                             <span>Summer 2024</span>
                         </div>
                         <div class="resume-item-subheader">
@@ -79,7 +88,7 @@
                     </li>
                     <li class="resume-item">
                         <div class="resume-item-header">
-                            <span>Machine Learning Intern</span>
+                            Machine Learning Intern
                             <span>Summer 2023</span>
                         </div>
                         <div class="resume-item-subheader">
@@ -92,7 +101,7 @@
                     </li>
                     <li class="resume-item">
                         <div class="resume-item-header">
-                            <span>Student Digitization Assistant</span>
+                            Student Digitization Assistant
                             <span>Fall 2022 - Present</span>
                         </div>
                         <div class="resume-item-subheader">
@@ -100,14 +109,13 @@
                             <span>St. Louis, MO</span>
                         </div>
                         <ul class="resume-item-details">
-                            <li>Assist digital imaging specialists with producing and processing high-quality digital images of library and
-                                special collection materials</li>
+                            <li>Assist digital imaging specialists with producing and processing high-quality digital images of library and special collection materials</li>
                             <li>Developed Python scripts to assist in optimizing the digitization workflow</li>
                         </ul>
                     </li>
                     <li class="resume-item">
                         <div class="resume-item-header">
-                            <span>Research Assistant</span>
+                            Research Assistant
                             <span>Summer 2022</span>
                         </div>
                         <div class="resume-item-subheader">
@@ -122,7 +130,7 @@
                     </li>
                     <li class="resume-item">
                         <div class="resume-item-header">
-                            <span>Server</span>
+                            Server
                             <span>Fall 2016 - Fall 2022</span>
                         </div>
                         <div class="resume-item-subheader">
@@ -130,7 +138,7 @@
                             <span>Tallahassee, FL</span>
                         </div>
                         <ul class="resume-item-details">
-                            <li>Started as busboy, promoted to server/bartender in March of 2018 and had many duties of a manager</li>                    
+                            <li>Started as busboy, promoted to server/bartender in March of 2018 and had many duties of a manager</li>                  
                         </ul>
                     </li>
                 </ul>
@@ -138,11 +146,11 @@
                 <ul>
                     <li class="resume-item">
                         <div class="resume-item-header">
-                            <span>Base Defense Roguelike Game <a href="https://github.com/Yosenky/GameOfLifeCompositions">[Link]</a></span>
+                            <a href="https://github.com/Yosenky/GameOfLifeCompositions">Base Defense Roguelike Game</a>
                             <span>Fall 2023</span>
                         </div>
                         <div class="resume-item-subheader">
-                            <span>Unreal Engine 5</span>
+                            Unreal Engine 5
                         </div>
                         <ul class="resume-item-details">
                             <li>Developed a 3rd-person 3D base defense roguelike game with a team for the 2023 WashU Hackathon</li>
@@ -151,11 +159,11 @@
                     </li>
                     <li class="resume-item">
                         <div class="resume-item-header">
-                            <span>Perceptron ML Algorithm <a href="https://github.com/Yosenky/Perceptron-ML-Model">[Link]</a></span>
+                            <a href="https://github.com/Yosenky/Perceptron-ML-Model">Perceptron ML Algorithm</a>
                             <span>Spring 2023</span>
                         </div>
                         <div class="resume-item-subheader">
-                            <span>Python</span>
+                            Python
                         </div>
                         <ul class="resume-item-details">
                             <li>Created and implemented the perceptron machine learning algorithm from scratch</li>
@@ -165,11 +173,11 @@
                     </li>
                     <li class="resume-item">
                         <div class="resume-item-header">
-                            <span>Space Cowboy Platformer Game <a href="https://github.com/Yosenky/Space-Cowboy-2D-Platformer">[Link]</a></span>
+                            <a href="https://github.com/Yosenky/Space-Cowboy-2D-Platformer">Space Cowboy Platformer Game</a>
                             <span>Spring 2022</span>
                         </div>
                         <div class="resume-item-subheader">
-                            <span>Unity, C#</span>
+                            Unity, C#
                         </div>
                         <ul class="resume-item-details">
                             <li>Collaborated with three friends to create a basic 2D platformer game in Unity</li>
@@ -178,11 +186,11 @@
                     </li>
                     <li class="resume-item">
                         <div class="resume-item-header">
-                            <span>Flappy Bird <a href="https://yosenky.itch.io/floppy-bird">[Link]</a></span>
+                            <a href="https://yosenky.itch.io/floppy-bird">Flappy Bird</a>
                             <span>Spring 2022</span>
                         </div>
                         <div class="resume-item-subheader">
-                            <span>Unity, C#</span>
+                            Unity, C#
                         </div>
                         <ul class="resume-item-details">
                             <li>Re-created the mobile game "Flappy Bird" from scratch in Unity</li>
@@ -199,7 +207,7 @@
                 <ul>
                     <li class="resume-item">
                         <div class="resume-item-header">
-                            <span>Captain of WashU Green/Red Collegiate Valorant Team</span>
+                            Captain of WashU Green/Red Collegiate Valorant Team
                             <span>Fall 2022 - Present</span>
                         </div>
                         <ul class="resume-item-details">
@@ -209,7 +217,7 @@
                     </li>
                     <li class="resume-item">
                         <div class="resume-item-header">
-                            <span>Co-founder and Captain of Sewanee PNG Collegiate League of Legends Team</span>
+                            Co-founder and Captain of Sewanee PNG Collegiate League of Legends Team
                             <span>Fall 2020 - Spring 2022</span>
                         </div>
                         <ul class="resume-item-details">
@@ -221,6 +229,9 @@
             </div>
         </section>
     </div>
+    <footer>
+        <p>&copy; 2024 Jackson McCall. All rights reserved.</p>
+    </footer>
     <script src="about-script.js"></script>
 </body>
 </html>

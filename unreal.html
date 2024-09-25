@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jackson McCall - Unreal</title>
+    <title>Jackson McCall - Unreal Engine Projects</title>
     <link rel="stylesheet" href="unreal-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -28,16 +29,89 @@
         </ul>
     </nav>
     <div class="content">
-        <h2>Welcome to Unreal!</h2>
-        <p>
-            
-            
-            
-            
-        </p>
+        <aside class="project-list">
+            <div class="project-title selected" onclick="toggleProjectDetails('projectA-content')">
+                <h1>Project A: The Unreal Experience</h1>
+                <p class="project-info">An Unreal Engine project exploring environmental design and interaction.</p>
+            </div>
+            <div class="project-title" onclick="toggleProjectDetails('projectB-content')">
+                <h1>Project B: Epic Adventures</h1>
+                <p class="project-info">A narrative-driven adventure game with complex mechanics and AI.</p>
+            </div>
+            <div class="project-title" onclick="toggleProjectDetails('projectC-content')">
+                <h1>Project C: Battle Arena</h1>
+                <p class="project-info">A multiplayer battle game focusing on competitive gameplay and strategy.</p>
+            </div>
+        </aside>
+        <section id="projectA-content" class="project-details" style="display: block;">
+            <div class="project-header">
+                <h1>Project A: The Unreal Experience</h1>
+                <p class="project-description">An Unreal Engine project exploring environmental design and interaction.</p>
+                <hr class="project-separator">
+            </div>
+            <div class="project-info">
+                <h3>Overview</h3>
+                <p>This project introduces fundamental Unreal Engine techniques, including environmental design and character interaction.</p>
+
+                <h3>Features</h3>
+                <ul>
+                    <li>Stunning Visuals</li>
+                    <li>Interactive Objects</li>
+                    <li>Day/Night Cycle</li>
+                </ul>
+
+                <h3>Technology</h3>
+                <p>Unreal Engine, C++, Blender for advanced models.</p>
+            </div>
+        </section>
+        
+        <section id="projectB-content" class="project-details" style="display: none;">
+            <div class="project-header">
+                <h1>Project B: Epic Adventures</h1>
+                <p class="project-description">A narrative-driven adventure game with complex mechanics and AI.</p>
+                <hr class="project-separator">
+            </div>
+            <div class="project-info">
+                <h3>Overview</h3>
+                <p>This project focuses on creating an engaging adventure game with rich storytelling and advanced AI systems.</p>
+
+                <h3>Features</h3>
+                <ul>
+                    <li>Complex AI Systems</li>
+                    <li>Immersive Storyline</li>
+                    <li>Dynamic Environments</li>
+                </ul>
+
+                <h3>Technology</h3>
+                <p>Unreal Engine, C++, Maya for detailed models, and Custom Audio.</p>
+            </div>
+        </section>
+
+        <section id="projectC-content" class="project-details" style="display: none;">
+            <div class="project-header">
+                <h1>Project C: Battle Arena</h1>
+                <p class="project-description">A multiplayer battle game focusing on competitive gameplay and strategy.</p>
+                <hr class="project-separator">
+            </div>
+            <div class="project-info">
+                <h3>Overview</h3>
+                <p>This project is a multiplayer battle game that emphasizes competitive gameplay strategies.</p>
+
+                <h3>Features</h3>
+                <ul>
+                    <li>Online Multiplayer</li>
+                    <li>Balanced Gameplay</li>
+                    <li>Team-based Strategy</li>
+                </ul>
+
+                <h3>Technology</h3>
+                <p>Unreal Engine, C++, Multiplayer Networking, and Advanced Physics.</p>
+            </div>
+        </section>
     </div>
     <footer>
         <p>&copy; 2024 Jackson McCall. All rights reserved.</p>
     </footer>
+    <script src="unreal-script.js"></script>
 </body>
 </html>

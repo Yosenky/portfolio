@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jackson McCall - Valorant Agents</title>
     <link rel="stylesheet" href="valorant-game-design-ideas-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -28,57 +29,149 @@
         </ul>
     </nav>
     <div class="content">
-        <h2>Welcome to Valorant Agents!</h2>
-
-        <section class="agent-details">
+        <aside class="agent-list">
+            <div class="agent-title" onclick="toggleAgentDetails('agentA-content')">
+                <h1>Agent A: The Mysterious</h1>
+                <p class="agent-info">Agent A is a stealthy character with abilities to infiltrate and gather intel.</p>
+            </div>
+            <div class="agent-title" onclick="toggleAgentDetails('agentB-content')">
+                <h1>Agent B: The Guardian</h1>
+                <p class="agent-info">Agent B specializes in defensive strategies and protecting teammates.</p>
+            </div>
+            <div class="agent-title" onclick="toggleAgentDetails('agentC-content')">
+                <h1>Agent C: The Disruptor</h1>
+                <p class="agent-info">Agent C uses disruptive abilities to disorient and disable enemies.</p>
+            </div>
+        </aside>
+        <section id="agentA-content" class="agent-details" style="display: block;">
             <div class="agent-header">
-                <img src="path/to/phoenix-image.jpg" alt="Phoenix" class="agent-image">
-                <div class="agent-info">
-                    <h1>Phoenix</h1>
-                    <p>Hailing from the U.K., Phoenix's star power shines through in his fighting style, igniting the battlefield with flash and flare. Whether he’s got backup or not, he’s rushing in to fight on his own terms.</p>
-                </div>
+                <h1>Agent A: The Mysterious</h1>
+                <p class="agent-description">Agent A is a stealthy character with abilities to infiltrate and gather intel.</p>
+                <hr class="agent-separator">
             </div>
-            
             <div class="agent-abilities">
-                <h2>Agent Abilities</h2>
                 <div class="ability">
-                    <img src="path/to/hot-hands.jpg" alt="Hot Hands" class="ability-icon">
                     <div class="ability-info">
-                        <h3>Hot Hands</h3>
-                        <p>Throw a fireball that explodes after a delay or upon impact with the ground. The fire zone damages enemies and heals you.</p>
+                        <h3>Passive: Shadow Walker</h3>
+                        <p>Agent A can move silently and leave no footprints.</p>
                     </div>
                 </div>
                 <div class="ability">
-                    <img src="path/to/curveball.jpg" alt="Curveball" class="ability-icon">
                     <div class="ability-info">
-                        <h3>Curveball</h3>
-                        <p>Cast a curving flare that bursts into brilliant light after a brief delay, temporarily blinding all looking at it. Left click curves it left, right click curves it right.</p>
+                        <h3>Q: Smoke Screen</h3>
+                        <p>Deploys a smoke screen to obscure vision in an area.</p>
                     </div>
                 </div>
                 <div class="ability">
-                    <img src="path/to/blaze.jpg" alt="Blaze" class="ability-icon">
                     <div class="ability-info">
-                        <h3>Blaze</h3>
-                        <p>Create a flame wall that blocks vision and damages anyone passing through it. You can bend the wall when casting by turning while holding the left mouse button.</p>
+                        <h3>E: Silent Step</h3>
+                        <p>Agent A can teleport a short distance silently.</p>
                     </div>
                 </div>
                 <div class="ability">
-                    <img src="path/to/run-it-back.jpg" alt="Run It Back" class="ability-icon">
                     <div class="ability-info">
-                        <h3>Run It Back</h3>
-                        <p>Mark your current location. If you die during the ability’s duration, or when the ability's duration expires, you’ll be reborn at the marked location with full health.</p>
+                        <h3>Ultimate: Phantom Strike</h3>
+                        <p>Agent A becomes invisible and gains increased movement speed for a short duration.</p>
                     </div>
                 </div>
             </div>
-            
             <div class="agent-lore">
-                <h2>Biography</h2>
-                <p>Phoenix is a duelist offering strong offensive abilities and self-sustain. His kit encourages a bold playstyle that allows him to challenge opponents directly while offering some unique tools to outplay and outmaneuver his opponents.</p>
+                <h2>Lore</h2>
+                <p>Agent A comes from a background of covert operations, specializing in gathering intel without being detected.</p>
+            </div>
+            <div class="agent-playstyle">
+                <h2>Playstyle</h2>
+                <p>Agent A excels at infiltrating enemy lines and gathering crucial information while avoiding direct confrontations.</p>
+            </div>
+        </section>
+        
+        <section id="agentB-content" class="agent-details" style="display: none;">
+            <div class="agent-header">
+                <h1>Agent B: The Guardian</h1>
+                <p class="agent-description">Agent B specializes in defensive strategies and protecting teammates.</p>
+                <hr class="agent-separator">
+            </div>
+            <div class="agent-abilities">
+                <div class="ability">
+                    <div class="ability-info">
+                        <h3>Passive: Shield Wall</h3>
+                        <p>Agent B creates a shield that absorbs damage.</p>
+                    </div>
+                </div>
+                <div class="ability">
+                    <div class="ability-info">
+                        <h3>Q: Guardian Circle</h3>
+                        <p>Creates a protective barrier around an area that blocks enemy projectiles.</p>
+                    </div>
+                </div>
+                <div class="ability">
+                    <div class="ability-info">
+                        <h3>E: Healing Wave</h3>
+                        <p>Heals all teammates within a certain radius.</p>
+                    </div>
+                </div>
+                <div class="ability">
+                    <div class="ability-info">
+                        <h3>Ultimate: Fortify</h3>
+                        <p>Grants all teammates within range temporary invulnerability and increased armor.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="agent-lore">
+                <h2>Lore</h2>
+                <p>Agent B has a history of serving in protective services, using his skills to safeguard his team in any situation.</p>
+            </div>
+            <div class="agent-playstyle">
+                <h2>Playstyle</h2>
+                <p>Agent B is ideal for defensive play, protecting key areas and providing support to teammates under fire.</p>
+            </div>
+        </section>
+
+        <section id="agentC-content" class="agent-details" style="display: none;">
+            <div class="agent-header">
+                <h1>Agent C: The Disruptor</h1>
+                <p class="agent-description">Agent C uses disruptive abilities to disorient and disable enemies.</p>
+                <hr class="agent-separator">
+            </div>
+            <div class="agent-abilities">
+                <div class="ability">
+                    <div class="ability-info">
+                        <h3>Passive: Disorienting Aura</h3>
+                        <p>Enemies near Agent C have reduced accuracy.</p>
+                    </div>
+                </div>
+                <div class="ability">
+                    <div class="ability-info">
+                        <h3>Q: Flashbang</h3>
+                        <p>Throws a flashbang that blinds and disorients enemies in the area of effect.</p>
+                    </div>
+                </div>
+                <div class="ability">
+                    <div class="ability-info">
+                        <h3>E: Concussion Blast</h3>
+                        <p>Fires a blast that concusses and slows enemies hit.</p>
+                    </div>
+                </div>
+                <div class="ability">
+                    <div class="ability-info">
+                        <h3>Ultimate: Chaos Field</h3>
+                        <p>Deploys a field that silences enemy abilities and distorts their vision.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="agent-lore">
+                <h2>Lore</h2>
+                <p>Agent C is a master of chaos, trained to disrupt enemy strategies and create openings for his team to strike.</p>
+            </div>
+            <div class="agent-playstyle">
+                <h2>Playstyle</h2>
+                <p>Agent C thrives in causing confusion and disorder among enemies, making him a challenging opponent to face.</p>
             </div>
         </section>
     </div>
     <footer>
         <p>&copy; 2024 Jackson McCall. All rights reserved.</p>
     </footer>
+    <script src="valorant-game-design-ideas-script.js"></script>
 </body>
 </html>

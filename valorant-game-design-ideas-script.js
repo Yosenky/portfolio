@@ -1,16 +1,27 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const header = document.getElementById('main-header');
+function toggleAgentDetails(agentId) {
+    // Get all agent detail elements
+    const agentDetails = document.querySelectorAll('.agent-details');
 
-    // Retrieve animation status from local storage
-    const animationState = localStorage.getItem('headerAnimationState');
+    // Hide all agent details
+    agentDetails.forEach(detail => {
+        detail.style.display = 'none';
+    });
 
-    // If there's a saved state, apply it
-    if (animationState) {
-        header.classList.add(animationState);
+    // Show the selected agent detail
+    var selectedAgent = document.getElementById(agentId);
+    if(selectedAgent) {
+        selectedAgent.style.display = 'block';
     }
 
-    // Save the animation state when the page is about to be unloaded
-    window.addEventListener('beforeunload', () => {
-        localStorage.setItem('headerAnimationState', 'header-animation');
+    // Remove 'selected' class from all agent titles
+    const agentTitles = document.querySelectorAll('.agent-title');
+    agentTitles.forEach(title => {
+        title.classList.remove('selected');
     });
-});
+
+    // Add 'selected' class to the clicked agent title
+    const clickedTitle = document.querySelector(`[onclick="toggleAgentDetails('${agentId}')"]`);
+    if(clickedTitle) {
+        clickedTitle.classList.add('selected');
+    }
+}

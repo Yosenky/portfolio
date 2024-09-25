@@ -1,9 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
     const header = document.getElementById('main-header');
     const allContent = document.querySelectorAll('.champion-details');
-
+    const firstChampion = document.querySelector('.champion-list .champion-title');
+    
     // Hide all champion details by default
     allContent.forEach(content => content.style.display = 'none');
+    
+    if (firstChampion) {
+        // Simulate a click on the first champion to open it by default
+        firstChampion.click();
+    }
 
     // Retrieve animation status from local storage
     const animationState = localStorage.getItem('headerAnimationState');

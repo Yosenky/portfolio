@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Open+Sans:wght@300;400;700&display=swap');
+
 :root {
     --bg-color: #0a0a0a;
     --text-color: #e0e0e0;
@@ -7,14 +9,12 @@
     --content-bg: #1e1e1e;
     --link-color: #4de9e9;
     --hover-bg-color: #333333;
-    --hover-border-color: #999999;
-    --selected-bg-color: #2a2a2a; /* Updated for selected state */
-    --selected-border-color: #bbbbbb; /* Updated for selected state */
-    --arrow-color: #00ffff; /* Arrow color */
-    --arrow-height: 15px; /* Arrow height */
-    --arrow-width: 30px; /* Arrow width */
-    --selection-animation-duration: 0.5s; /* Animation duration */
+    --hover-border-color: #00ffff;
+    --selected-bg-color: #2a2a2a;
+    --selected-border-color: #ff00ff;
+    --selection-animation-duration: 0.3s;
 }
+
 body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
@@ -26,6 +26,7 @@ body {
         radial-gradient(circle at 25% 25%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
         radial-gradient(circle at 75% 75%, rgba(255, 0, 255, 0.1) 0%, transparent 50%);
 }
+
 header {
     background-color: var(--header-bg);
     padding: 2em;
@@ -33,11 +34,43 @@ header {
     border-bottom: 2px solid var(--accent-color);
     box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
 }
+
+h1 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--accent-color);
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
 h1, h2, h3 {
     font-family: 'Orbitron', sans-serif;
     color: var(--accent-color);
     text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
 }
+
+.contact-links {
+    font-size: 0.9em;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.contact-links a {
+    color: var(--accent-color);
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 5px 10px;
+    border: 1px solid var(--accent-color);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.contact-links a:hover {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    box-shadow: 0 0 10px var(--accent-color);
+}
+
 nav {
     background-color: rgba(26, 26, 26, 0.9);
     padding: 15px 0;
@@ -47,6 +80,7 @@ nav {
     backdrop-filter: blur(5px);
     border-bottom: 1px solid var(--accent-color);
 }
+
 nav ul {
     list-style-type: none;
     padding: 0;
@@ -54,9 +88,11 @@ nav ul {
     display: flex;
     justify-content: center;
 }
+
 nav ul li {
     margin: 0 15px;
 }
+
 nav ul li a {
     color: var(--link-color);
     text-decoration: none;
@@ -65,10 +101,12 @@ nav ul li a {
     transition: all 0.3s ease;
     font-weight: bold;
 }
+
 nav ul li a:hover {
     background-color: rgba(0, 255, 255, 0.1);
     color: #ffffff;
 }
+
 .content {
     display: flex;
     max-width: 1200px;
@@ -78,6 +116,7 @@ nav ul li a:hover {
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(255, 0, 255, 0.2);
 }
+
 .champion-list {
     flex: 0 0 30%;
     max-width: 30%;
@@ -88,6 +127,7 @@ nav ul li a:hover {
     height: calc(100vh - 80px); /* Adjust based on header/nav height */
     overflow-y: auto;
 }
+
 .champion-title {
     cursor: pointer;
     text-align: left;
@@ -95,47 +135,26 @@ nav ul li a:hover {
     margin-bottom: 20px;
     background-color: #222222;
     border: 2px solid var(--accent-color);
-    border-radius: 5px;
-    padding: 10px;
-    transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
+    border-radius: 10px; /* Rounded corners */
+    padding: 15px; /* More padding for better clickability */
+    transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.3s;
 }
+
 .champion-title:hover {
     background-color: var(--hover-bg-color);
     border-color: var(--hover-border-color);
+    transform: translateY(-2px); /* Slight lift on hover */
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.3); /* Shadow effect on hover */
 }
+
 .champion-title.selected {
-    background-color: var(--selected-bg-color); /* Updated color for selected state */
-    border-color: var(--selected-border-color); /* Updated color for selected state */
-    border-width: 3px; /* Increase border width for selected state */
-    box-shadow: 0 0 10px var(--selected-shadow-color); /* Add subtle shadow */
-    position: relative;
-    animation: arrow-slide var(--selection-animation-duration) forwards;
+    background-color: var(--selected-bg-color);
+    border-color: var(--selected-border-color);
+    border-width: 3px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5); /* Enhanced shadow */
+    animation: none; /* Ensure no arrow animation */
 }
-.champion-title.selected::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: -var(--arrow-width);
-    transform: translateY(-50%);
-    width: var(--arrow-width);
-    height: var(--arrow-height);
-    background: linear-gradient(var(--arrow-color), var(--arrow-color)) no-repeat center/100% 100%;
-    clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
-    display: none; /* Initially hidden */
-}
-@keyframes arrow-slide {
-    0% {
-        left: -var(--arrow-width);
-        opacity: 0;
-    }
-    100% {
-        left: 0;
-        opacity: 1;
-    }
-}
-.champion-title.selected::before {
-    display: block; /* Show the arrow when selected */
-}
+
 .champion-info {
     font-size: 0.85em;
     color: rgba(255, 255, 255, 0.9);
@@ -143,13 +162,45 @@ nav ul li a:hover {
     padding-top: 5px;
     border-top: 1px solid var(--accent-color);
 }
+
+.champion-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.champion-header h1 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--accent-color);
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+}
+
+.champion-description {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.champion-separator {
+    width: 80%;
+    border: 1px solid var(--accent-color);
+    margin: 20px auto;
+}
+
 .champion-details {
     flex: 1;
     padding-left: 20px;
 }
-#champion-content {
-    display: none; /* Ensure dropdown is closed by default */
+
+.potential-design-pitfalls {
+    margin-top: 20px;
 }
+
 footer {
     text-align: center;
     margin-top: 40px;
@@ -157,25 +208,4 @@ footer {
     background-color: var(--header-bg);
     color: var(--text-color);
     border-top: 2px solid var(--secondary-accent);
-}
-.contact-links {
-    font-size: 0.9em;
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-.contact-links a {
-    color: var(--accent-color);
-    text-decoration: none;
-    margin: 0 10px;
-    padding: 5px 10px;
-    border: 1px solid var(--accent-color);
-    border-radius: 20px;
-    transition: all 0.3s ease;
-}
-.contact-links a:hover {
-    background-color: var(--accent-color);
-    color: var(--bg-color);
-    box-shadow: 0 0 10px var(--accent-color);
 }
