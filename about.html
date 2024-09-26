@@ -30,9 +30,17 @@
     </nav>
     <div class="content">
         <aside class="project-list">
-            <div class="project-title selected">
+            <div class="project-title selected" data-content="resume-content">
                 <h1>Resume</h1>
                 <p class="project-info">My professional resume detailing my education, experience, projects, and skills.</p>
+            </div>
+            <div class="project-title" data-content="courses-content">
+                <h1>Courses Taken</h1>
+                <p class="project-info">List of courses I have taken relevant to my career.</p>
+            </div>
+            <div class="project-title" data-content="bio-content">
+                <h1>Bio</h1>
+                <p class="project-info">A brief biography about myself.</p>
             </div>
         </aside>
         <section id="resume-content" class="project-details" style="display: block;">
@@ -228,6 +236,14 @@
                     </li>
                 </ul>
             </div>
+        </section>
+        <section id="courses-content" class="project-details" style="display: none;">
+            <h1>Courses Taken</h1>
+            <p>This is a wip!</p>
+        </section>
+        <section id="bio-content" class="project-details" style="display: none;">
+            <h1>Bio</h1>
+            <p>This is a wip!</p>
         </section>
     </div>
     <footer>

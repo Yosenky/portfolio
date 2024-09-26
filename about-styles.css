@@ -132,6 +132,7 @@ nav ul li a:hover {
     border-radius: 10px; /* Rounded corners */
     padding: 15px; /* More padding for better clickability */
     transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+    text-decoration: none; /* Ensure no underline by default */
 }
 
 .project-title:hover {
@@ -139,6 +140,15 @@ nav ul li a:hover {
     border-color: var(--hover-border-color);
     transform: translateY(-2px); /* Slight lift on hover */
     box-shadow: 0 8px 10px rgba(0, 0, 0, 0.3); /* Shadow effect on hover */
+    text-decoration: none; /* Ensure no underline on hover */
+}
+
+.project-title a {
+    text-decoration: none; /* Remove underline from links within project titles */
+}
+
+.project-title a:hover {
+    text-decoration: none; /* Remove underline when hovering over links within project titles */
 }
 
 .project-title.selected {
@@ -195,7 +205,7 @@ nav ul li a:hover {
 .resume-header .download-button:hover {
     background-color: var(--accent-color);
     color: var(--bg-color);
-    box-shadow: 0 0 10px var (--accent-color);
+    box-shadow: 0 0 10px var(--accent-color);
 }
 
 .resume-section h2 {
@@ -204,7 +214,7 @@ nav ul li a:hover {
     color: var(--accent-color);
     text-transform: uppercase;
     margin-top: 30px;
-    border-bottom: 2px solid var(--accent-color);
+    border-bottom: 2px solid var (--accent-color);
     padding-bottom: 5px;
 }
 
@@ -231,7 +241,7 @@ ul {
 }
 
 .resume-item-header a:hover {
-    text-decoration: underline;
+    text-decoration: none; /* Remove underline on hover */
     color: #ffffff; /* Change color on hover to enhance visibility */
 }
 
@@ -262,7 +272,7 @@ ul {
 }
 
 .resume-item-details a {
-    color: var(--link-color);
+    color: var (--link-color);
     text-decoration: underline;
 }
 
