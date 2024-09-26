@@ -29,9 +29,14 @@ function toggleChampionDetails(id) {
     const allContent = document.querySelectorAll('.champion-details');
     const allTitles = document.querySelectorAll('.champion-title');
 
+    let isCurrentlyVisible = false;
+
     allContent.forEach(content => {
         if (content.id === id) {
-            content.style.display = content.style.display === "block" ? "none" : "block";
+            if (content.style.display === "block") {
+                isCurrentlyVisible = true;
+            }
+            content.style.display = "block"; // Always show the clicked champion
         } else {
             content.style.display = "none";
         }
@@ -39,7 +44,7 @@ function toggleChampionDetails(id) {
 
     allTitles.forEach(title => {
         const relatedContentId = title.getAttribute('onclick').match(/'(.*?)'/)[1];
-        if (relatedContentId === id && document.getElementById(id).style.display === "block") {
+        if (relatedContentId === id) {
             title.classList.add('selected');
         } else {
             title.classList.remove('selected');

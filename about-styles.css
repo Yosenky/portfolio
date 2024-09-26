@@ -177,8 +177,25 @@ nav ul li a:hover {
 .resume-header h1 {
     font-family: 'Orbitron', sans-serif;
     margin: 0;
-    font-size: 2rem;
+    font-size: 2.5rem; /* Increased font size */
     color: var(--accent-color);
+}
+
+.resume-header .download-button {
+    display: inline-block;
+    margin-top: 10px;
+    color: var(--accent-color);
+    text-decoration: none;
+    padding: 5px 15px;
+    border: 1px solid var(--accent-color);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.resume-header .download-button:hover {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    box-shadow: 0 0 10px var (--accent-color);
 }
 
 .resume-section h2 {
@@ -216,6 +233,13 @@ ul {
 .resume-item-header a:hover {
     text-decoration: underline;
     color: #ffffff; /* Change color on hover to enhance visibility */
+}
+
+/* Add this to maintain link color after being visited */
+.resume-item-header a:visited,
+.resume-item-details a:visited {
+    color: var(--link-color);
+    text-decoration: underline; /* Ensure the project links look clickable */
 }
 
 .resume-item-subheader {
