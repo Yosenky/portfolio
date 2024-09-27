@@ -188,3 +188,42 @@ footer {
     color: var(--bg-color);
     box-shadow: 0 0 10px var(--accent-color);
 }
+
+/* Force the link color to always be the light blue (accent color) */
+a {
+    color: var(--accent-color); /* Light blue */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+/* Ensure the visited links stay light blue */
+a:visited {
+    color: var(--accent-color); /* Maintain light blue on visited links */
+}
+
+/* On hover, maintain the light blue color and add a background effect */
+a:hover {
+    color: var(--accent-color); /* Keep the light blue */
+    text-decoration: underline; /* Optional: add underline on hover */
+}
+
+/* On focus, keep the light blue as well */
+a:focus {
+    color: var(--accent-color);
+}
+
+.center-link {
+    text-align: center;
+}
+
+.center-link a {
+    color: var(--accent-color); /* Light blue */
+    text-decoration: none;
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+.center-link a:hover {
+    text-shadow: 0 0 10px var(--accent-color);
+    color: #ffffff;
+    cursor: pointer; /* Ensure pointer appears to indicate it's a link */
+}

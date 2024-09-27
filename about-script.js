@@ -1,9 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
     const projectTitles = document.querySelectorAll('.project-title');
     const projectDetails = document.querySelectorAll('.project-details');
-    
-    let sortedColumn = null;  // Track the currently sorted column
-    let ascending = true;  // Track the sort order
+
+    let sortedColumn = 'date';  // Default sort column
+    let ascending = false;  // Default sort order for dates (descending)
+
+    const gradeOrder = { 'In-Progress': 1, 'P': 2, 'B': 3, 'A': 4 };
 
     let coursesList = [
         { name: "Introduction to Computer Engineering", grade: "A", languages: "Arduino C", category: "Software Engineering", date: "Fall 2022" },
@@ -138,16 +140,17 @@ document.addEventListener('DOMContentLoaded', () => {
             <thead>
                 <tr>
                     <th class="sortable" data-sort="name">Course Name<span class="arrow"></span></th>
+                    <th class="sortable" data-sort="grade">Grade<span class="arrow"></span></th>
                     <th class="sortable" data-sort="languages">Languages Used<span class="arrow"></span></th>
                     <th class="sortable" data-sort="category">Category<span class="arrow"></span></th>
-                    <th class="sortable" data-sort="date">Date Taken<span class="arrow"></span></th>
+                    <th class="sortable sorted" data-sort="date">Date Taken<span class="arrow arrow-down"></span></th>
                 </tr>
             </thead>
             <tbody>
             </tbody>
         `;
         const tbody = table.querySelector('tbody');
-        
+
         // Function to populate table rows
         function populateTable(courses) {
             tbody.innerHTML = '';
@@ -157,8 +160,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 tr.setAttribute('data-category', course.category);
                 tr.innerHTML = `
                     <td>${course.name}</td>
-                    <td>${course.languages}</td>
-                    <td>${course.category}</td>
+                    <td>${course.grade}</td>
+                    <td>${formatLanguages(course.languages)}</td>
+                    <td>${formatCategories(course.category)}</td>
                     <td>${course.date}</td>
                 `;
                 tbody.appendChild(tr);
@@ -166,11 +170,61 @@ document.addEventListener('DOMContentLoaded', () => {
             applyFilters();  // Apply filters after populating the table
         }
 
+        // Function to format and sort languages
+        function formatLanguages(languages) {
+            const activeFilters = getActiveFilters('languages');
+            return languages.split(', ').sort((a, b) => {
+                const isActiveA = activeFilters.includes(a);
+                const isActiveB = activeFilters.includes(b);
+                if (isActiveA && !isActiveB) return -1;
+                if (!isActiveA && isActiveB) return 1;
+                return a.localeCompare(b);
+            }).map(lang => {
+                const isActive = activeFilters.includes(lang);
+                return `<span class="language-button ${isActive ? 'active' : ''}">${lang}</span>`;
+            }).join('');
+        }
+
+        // Function to format and sort categories
+        function formatCategories(categories) {
+            const activeFilters = getActiveFilters('category');
+            return categories.split(', ').sort((a, b) => {
+                const isActiveA = activeFilters.includes(a);
+                const isActiveB = activeFilters.includes(b);
+                if (isActiveA && !isActiveB) return -1;
+                if (!isActiveA && isActiveB) return 1;
+                return a.localeCompare(b);
+            }).map(cat => {
+                const isActive = activeFilters.includes(cat);
+                return `<span class="category-button ${isActive ? 'active' : ''}">${cat}</span>`;
+            }).join('');
+        }
+
+        function getActiveFilters(type) {
+            const activeFilters = [];
+            document.querySelectorAll(`.toggle-btn.active[data-type="${type}"]`).forEach(btn => {
+                activeFilters.push(btn.getAttribute('data-value'));
+            });
+            return activeFilters;
+        }
+
         // Function to sort courses
         function sortCourses(courses, key, ascending = true) {
+            const activeFilters = getActiveFilters(key);
             return courses.sort((a, b) => {
+                // Check for exact matches first
+                const aMatchesFilter = activeFilters.every(filter => a[key].includes(filter));
+                const bMatchesFilter = activeFilters.every(filter => b[key].includes(filter));
+
+                if (aMatchesFilter && !bMatchesFilter) return -1;
+                if (!aMatchesFilter && bMatchesFilter) return 1;
+
+                // Regular sorting otherwise
                 if (key === 'date') {
-                    return compareDates(a[key], b[key]) * (ascending ? 1 : -1);
+                    return compareDates(a[key], b[key]) * (ascending ? 1 : -1);  // Change for correct order
+                } else if (key === 'grade') {
+                    const comparison = gradeOrder[a[key]] - gradeOrder[b[key]];
+                    return (ascending ? 1 : -1) * comparison; // Ascending or descending based on value of ascending
                 } else {
                     const valueA = a[key].toLowerCase();
                     const valueB = b[key].toLowerCase();
@@ -195,23 +249,17 @@ document.addEventListener('DOMContentLoaded', () => {
         coursesContent.appendChild(buttonsContainer);
         coursesContent.appendChild(table);
 
-        // Show all rows initially (all buttons are toggled OFF by default)
+        // Initial sort on page load
+        coursesList = sortCourses(coursesList, sortedColumn, ascending);
         populateTable(coursesList);
 
         // Function to apply filters
         function applyFilters() {
             const rows = document.querySelectorAll('tbody tr');
             const activeFilters = {
-                languages: [],
-                category: []
+                languages: getActiveFilters('languages'),
+                category: getActiveFilters('category')
             };
-
-            // Collect active filters
-            document.querySelectorAll('.toggle-btn.active').forEach(button => {
-                const type = button.getAttribute('data-type');
-                const value = button.getAttribute('data-value');
-                activeFilters[type].push(value);
-            });
 
             const filtersActive = activeFilters.languages.length > 0 || activeFilters.category.length > 0;
 
@@ -225,6 +273,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 );
 
                 row.style.display = isVisible ? '' : 'none';
+                row.querySelectorAll('.language-button, .category-button').forEach(button => {
+                    const value = button.textContent;
+                    if (activeFilters.languages.includes(value) || activeFilters.category.includes(value)) {
+                        button.classList.add('active');
+                    } else {
+                        button.classList.remove('active');
+                    }
+                });
             });
         }
 
@@ -233,7 +289,7 @@ document.addEventListener('DOMContentLoaded', () => {
         toggleButtons.forEach(button => {
             button.addEventListener('click', () => {
                 button.classList.toggle('active');  // Toggle the visual state
-                applyFilters();
+                populateTable(coursesList);  // Reapply filtering after toggling
             });
         });
 
@@ -246,7 +302,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     ascending = !ascending;  // Toggle sort order
                 } else {
                     sortedColumn = sortKey;
-                    ascending = true;  // Default to ascending when a new column is sorted
+                    ascending = sortKey !== 'date' || !ascending;  // Toggle for 'date' on first click, `ascending` otherwise
                 }
                 coursesList = sortCourses(coursesList, sortKey, ascending);
                 populateTable(coursesList);  // Reapply filtering after sorting
@@ -260,5 +316,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 arrow.classList.add(ascending ? 'arrow-up' : 'arrow-down');
             });
         });
+
+        // Highlight the sorted column and set the appropriate arrow
+        const initialSortedHeader = document.querySelector(`th[data-sort="${sortedColumn}"]`);
+        initialSortedHeader.classList.add('sorted');
+        initialSortedHeader.querySelector('.arrow').classList.add('arrow-down');
+    }
+
+    // Load the correct section
+    if (window.location.hash) {
+        const hash = window.location.hash.substring(1);
+        const targetTitle = document.querySelector(`.project-title[data-content="${hash}-content"]`);
+        if (targetTitle) {
+            targetTitle.click();
+        }
     }
 });

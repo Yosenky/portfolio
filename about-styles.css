@@ -347,6 +347,13 @@ th, td {
 th {
     background-color: var(--header-bg);
     color: var(--accent-color);
+    cursor: pointer;  /* Indicate that the column headers are clickable */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+th:hover {
+    background-color: var(--hover-bg-color);
+    color: var(--hover-border-color);
 }
 
 tr:nth-child(even) {
@@ -374,4 +381,50 @@ tr:hover {
 /* Show arrow on the sorted column */
 .sorted .arrow {
     display: inline-block;
+}
+
+/* Language and category buttons inside the table */
+.language-button, .category-button {
+    display: inline-block;
+    background-color: var(--inactive-color); /* Matching unselected state */
+    color: var(--text-color);
+    border: 1px solid var(--inactive-color);
+    border-radius: 20px;
+    padding: 3px 10px; /* Smaller padding for better fit */
+    margin: 2px;
+    font-size: 12px; /* Smaller font size */
+    cursor: default; /* Not clickable */
+    transition: all 0.3s ease;
+}
+
+/* Glowing style for active filters */
+.language-button.active, .category-button.active {
+    background-color: var(--accent-color); /* Selected state */
+    color: var(--bg-color);
+    border: 1px solid var(--accent-color);
+    box-shadow: 0 0 10px var(--accent-color);
+}
+
+.gpa-info {
+    margin-bottom: 20px;
+    font-size: 1em;
+    color: var(--text-color);
+    background-color: var(--content-bg);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.2);
+}
+
+/* Add the appropriate styles for the bio-section class */
+.bio-section {
+    margin-bottom: 20px;
+}
+
+.bio-section h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.bio-section p {
+    margin-bottom: 10px;
 }
