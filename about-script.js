@@ -210,19 +210,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Function to sort courses
         function sortCourses(courses, key, ascending = true) {
-            const activeFilters = getActiveFilters(key);
+            const activeFilters = getActiveFilters(key); // Get active filters for the key
             return courses.sort((a, b) => {
-                // Check for exact matches first
-                const aMatchesFilter = activeFilters.every(filter => a[key].includes(filter));
-                const bMatchesFilter = activeFilters.every(filter => b[key].includes(filter));
+                // Prioritize active filters
+                const aHasFilter = activeFilters.some(filter => a[key].includes(filter));
+                const bHasFilter = activeFilters.some(filter => b[key].includes(filter));
 
-                if (aMatchesFilter && !bMatchesFilter) return -1;
-                if (!aMatchesFilter && bMatchesFilter) return 1;
+                if (aHasFilter && !bHasFilter) return -1;
+                if (!aHasFilter && bHasFilter) return 1;
 
                 // Regular sorting otherwise
                 if (key === 'date') {
-                    return compareDates(a[key], b[key]) * (ascending ? 1 : -1);  // Change for correct order
+                    return compareDates(a[key], b[key]) * (ascending ? -1 : 1);  // First sort in descending order
                 } else if (key === 'grade') {
+                    const gradeOrder = { 'In-Progress': 1, 'P': 2, 'B': 3, 'A': 4 };
                     const comparison = gradeOrder[a[key]] - gradeOrder[b[key]];
                     return (ascending ? 1 : -1) * comparison; // Ascending or descending based on value of ascending
                 } else {
