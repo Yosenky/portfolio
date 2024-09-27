@@ -4,6 +4,7 @@
     --bg-color: #0a0a0a;
     --text-color: #e0e0e0;
     --accent-color: #00ffff;
+    --inactive-color: #555555;
     --secondary-accent: #ff00ff;
     --header-bg: #1a1a1a;
     --content-bg: #1e1e1e;
@@ -214,7 +215,7 @@ nav ul li a:hover {
     color: var(--accent-color);
     text-transform: uppercase;
     margin-top: 30px;
-    border-bottom: 2px solid var (--accent-color);
+    border-bottom: 2px solid var(--accent-color);
     padding-bottom: 5px;
 }
 
@@ -272,7 +273,7 @@ ul {
 }
 
 .resume-item-details a {
-    color: var (--link-color);
+    color: var(--link-color);
     text-decoration: underline;
 }
 
@@ -286,5 +287,91 @@ footer {
     padding: 20px;
     background-color: var(--header-bg);
     color: var(--text-color);
-    border-top: 2px solid var(--secondary-accent);
+}
+
+/* Add these styles for the buttons */
+.toggle-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* Center the buttons */
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+
+.row {
+    display: flex;
+    justify-content: center;  /* Center the buttons in each row */
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.row .label {
+    font-weight: bold;
+    margin-right: 10px;
+    white-space: nowrap;
+}
+
+.toggle-btn {
+    background-color: var(--inactive-color); /* Default unselected state */
+    color: var(--text-color);
+    border: 1px solid var(--inactive-color);
+    border-radius: 20px;
+    padding: 5px 15px;
+    margin: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.toggle-btn.active {
+    background-color: var(--accent-color); /* Selected state */
+    color: var(--bg-color);
+    border: 1px solid var(--accent-color);
+    box-shadow: 0 0 10px var(--accent-color);
+}
+
+/* Add these styles for the table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 14px;
+    text-align: left;
+}
+
+th, td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: var(--header-bg);
+    color: var(--accent-color);
+}
+
+tr:nth-child(even) {
+    background-color: var(--content-bg);
+}
+
+tr:hover {
+    background-color: var(--hover-bg-color);
+}
+
+/* Arrow styles */
+.arrow {
+    margin-left: 5px;
+    display: none;
+}
+
+.arrow-up::before {
+    content: '▲';
+}
+
+.arrow-down::before {
+    content: '▼';
+}
+
+/* Show arrow on the sorted column */
+.sorted .arrow {
+    display: inline-block;
 }
