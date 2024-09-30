@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jackson McCall - Unity Projects</title>
     <link rel="stylesheet" href="unity-styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Orbitron:wght@400;700&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <header>
         <h1>Jackson McCall</h1>
@@ -29,51 +32,80 @@
         </ul>
     </nav>
     <div class="content">
-        
+
         <aside class="project-list">
-            <div class="project-title selected" onclick="toggleProjectDetails('projectB-content')">
+            <div class="project-title selected" onclick="toggleProjectDetails('space_cowboy_content')">
                 <h1>Space Cowboy Platformer</h1>
-                <p class="project-info">Adventure through a 2D platformer level while fighting enemies until you reach the final boss, a cactus!</p>
+                <p class="project-info">Adventure through a 2D platformer level while fighting enemies until you reach
+                    the final boss, a cactus!</p>
             </div>
-            <div class="project-title" onclick="toggleProjectDetails('projectA-content')">
+            <div class="project-title" onclick="toggleProjectDetails('floppy_bird_content')">
                 <h1>Floppy Bird</h1>
                 <p class="project-info">A Unity project exploring basic game mechanics and concepts.</p>
             </div>
         </aside>
-        
-        <section id="projectB-content" class="project-details" style="display: block;">
+
+        <section id="space_cowboy_content" class="project-details" style="display: block;">
             <div class="project-header">
                 <h1>Space Cowboy Platformer</h1>
-                <p class="project-description">Adventure through a 2D platformer level while fighting enemies until you reach the final boss, a cactus!</p>
+                <p class="project-description">Adventure through a 2D platformer level while fighting enemies until you
+                    reach the final boss, a cactus!</p>
             </div>
             <div class="project-info">
                 <h3>Overview</h3>
-                <p>This project was made with a couple of my friends while I was at Sewanee. My main focus was on designing and implementing the final boss. He's a cactus that shoots out his spines in a radial pattern, and the fight increases in difficulty as you tear down his health bar! This was a blast to work on, and I'll forever remember the memories I made while working on this with my friends. </p>
+                <p>This project was made with a couple of my friends while I was at Sewanee. My main focus was on
+                    designing and implementing the final boss. He's a cactus that shoots out his spines in a radial
+                    pattern, and the fight increases in difficulty as you tear down his health bar! This was a blast to
+                    work on, and I'll forever remember the memories I made while working on this with my friends. </p>
                 <p>Use WASD to move the character, SPACE to jump, and LEFT CLICK to shoot. Enjoy! </p>
                 <div class="center-link">
                     <h3>
                         <a href="https://itch.io/embed-upload/11585957?color=333333">Link to itch.io hosting</a>
                     </h3>
                 </div>
-                <p>I really wanted to embed this directly onto my website, but I hadn't yet figured out how to adjust the sizing of things so it would display properly, so it would look all wacky if I displayed it here. Please click the link above if you want to try it out!</p>
+                <p>I really wanted to embed this directly onto my website, but I hadn't yet figured out how to adjust the
+                    sizing of things so it would display properly, so it would look all wacky if I displayed it here.
+                    Please click the link above if you want to try it out!</p>
             </div>
         </section>
-        
-        <section id="projectA-content" class="project-details" style="display: none;">
+
+        <section id="floppy_bird_content" class="project-details" style="display: none;">
             <div class="project-header">
                 <h1>Floppy Bird</h1>
                 <p class="project-description">A recreation of the wildly popular mobile game "Flappy Bird".</p>
             </div>
-            <div class="project-info">
-                <h3>Overview</h3>
-                <p>This was the first game that I ever fully finished in Unity, I did the all of the art and programming myself. Enjoy!</p>
-                <p>Try to survive as long as you can by timing your jumps to avoid the pipes! Press Space to jump.</p>
-                <div class="center-link">
-                    <h3>
-                        <a href="https://itch.io/embed-upload/5202797?color=9edb59">Link to itch.io hosting</a>
-                    </h3>
+            <div class="floppy-bird-media">
+                <div class="looping-gif">
+                    <img src="media/unity/floppy_bird/gameplay_gif.gif" alt="Gameplay GIF">
                 </div>
-                <p>I really wanted to embed this directly onto my website, but I hadn't yet figured out how to adjust the sizing of things so it would display properly, so it would look all wacky if I displayed it here. Please click the link above if you want to try it out!</p>
+                <div class="project-info">
+                    <h3 class="overview">Overview</h3>
+                    <p>This was the first game that I ever fully finished in Unity, I did all of the art and programming
+                        myself. It was my first time working with the Unity Engine, and a lot of the time spent on the
+                        project revolved around understanding the editor and the basics of C# coding for Unity. I played
+                        flappy bird a lot on my family iPad when the game was popular, and I thought that it was a good
+                        starting point for me to learn the fundamentals of Unity game development. If you want to try the
+                        game out yourself, I have provided a link to the itch.io hosting for it. I hope you enjoy!</p>
+                    <h3 class="gameplay">Gameplay</h3>
+                    <p>Try to survive as long as you can by timing your jumps to avoid the pipes! Press Space to jump.
+                    </p>
+                    <div class="center-link">
+                        <h3>
+                            <a href="https://itch.io/embed-upload/5202797?color=9edb59" class="emphasized">Link to itch.io hosting</a>
+                        </h3>
+                    </div>
+                </div>
+                <div class="image-slideshow">
+                    <img src="media/unity/floppy_bird/start.png" alt="Start screen" class="active">
+                    <img src="media/unity/floppy_bird/mid_air.png" alt="Mid air">
+                    <img src="media/unity/floppy_bird/mid_pipe.png" alt="Mid pipe">
+                    <img src="media/unity/floppy_bird/game_over.png" alt="Game over">
+                    <img src="media/unity/floppy_bird/main_menu.png" alt="Main menu">
+                </div>
+                <div class="slideshow-controls">
+                    <button class="prev">❮</button>
+                    <button class="next">❯</button>
+                </div>
             </div>
         </section>
     </div>
@@ -82,4 +114,5 @@
     </footer>
     <script src="unity-script.js"></script>
 </body>
+
 </html>
