@@ -1,48 +1,60 @@
 document.addEventListener('DOMContentLoaded', () => {
     const projectTitles = document.querySelectorAll('.project-title');
-    const slides = document.querySelectorAll('.image-slideshow img');
-    const prevButton = document.querySelector('.prev');
-    const nextButton = document.querySelector('.next');
-    let currentSlide = 0;
-    let slideInterval;
+    const prevButtons = document.querySelectorAll('.prev');
+    const nextButtons = document.querySelectorAll('.next');
+    let slideIntervals = {};
 
     // Function to show slide
-    function showSlide(index) {
+    function showSlide(slides, index) {
         slides.forEach((slide, i) => {
             slide.classList.toggle('active', i === index);
         });
     }
 
     // Function to go to the next slide
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % slides.length;
-        showSlide(currentSlide);
+    function nextSlide(slides, currentSlideVar) {
+        return () => {
+            window[currentSlideVar] = (window[currentSlideVar] + 1) % slides.length;
+            showSlide(slides, window[currentSlideVar]);
+        };
     }
 
     // Function to go to the previous slide
-    function prevSlide() {
-        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-        showSlide(currentSlide);
+    function prevSlide(slides, currentSlideVar) {
+        return () => {
+            window[currentSlideVar] = (window[currentSlideVar] - 1 + slides.length) % slides.length;
+            showSlide(slides, window[currentSlideVar]);
+        };
     }
 
-    // Set an interval to go to the next slide every 2 seconds
-    slideInterval = setInterval(nextSlide, 2000);
+    // Initialize slideshows
+    function initSlideshows() {
+        document.querySelectorAll('.image-slideshow').forEach((slideshow, idx) => {
+            const slides = slideshow.querySelectorAll('img');
+            const currentSlideVar = `currentSlide${idx}`;
 
-    // Event listeners for the prev/next buttons
-    prevButton.addEventListener('click', () => {
-        prevSlide();
-        clearInterval(slideInterval);
-        slideInterval = setInterval(nextSlide, 2000);
-    });
+            window[currentSlideVar] = 0;
+            showSlide(slides, window[currentSlideVar]);
 
-    nextButton.addEventListener('click', () => {
-        nextSlide();
-        clearInterval(slideInterval);
-        slideInterval = setInterval(nextSlide, 2000);
-    });
+            const next = nextSlide(slides, currentSlideVar);
+            const prev = prevSlide(slides, currentSlideVar);
 
-    // Show the first slide initially
-    showSlide(currentSlide);
+            if (slideIntervals[currentSlideVar]) clearInterval(slideIntervals[currentSlideVar]);
+            slideIntervals[currentSlideVar] = setInterval(next, 2000);
+
+            nextButtons[idx].addEventListener('click', () => {
+                next();
+                clearInterval(slideIntervals[currentSlideVar]);
+                slideIntervals[currentSlideVar] = setInterval(next, 2000);
+            });
+
+            prevButtons[idx].addEventListener('click', () => {
+                prev();
+                clearInterval(slideIntervals[currentSlideVar]);
+                slideIntervals[currentSlideVar] = setInterval(next, 2000);
+            });
+        });
+    }
 
     // Handle project title selection
     projectTitles.forEach((title) => {
@@ -54,17 +66,39 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Initially select "Space Cowboy Platformer" (first project by default)
+    // Initially select "Space Cowboy Platformer"
     document.querySelector('.project-title.selected').click();
 });
 
 function toggleProjectDetails(projectId) {
     const projectDetails = document.querySelectorAll('.project-details');
     projectDetails.forEach(detail => {
-        if (detail.id === projectId) {
-            detail.style.display = 'block';
-        } else {
-            detail.style.display = 'none';
-        }
+        detail.style.display = (detail.id === projectId) ? 'block' : 'none';
     });
+
+    const selectedSection = document.querySelector(`#${projectId}`);
+    if (selectedSection) {
+        const slides = selectedSection.querySelectorAll('.image-slideshow img');
+        if (slides.length > 0) {
+            const currentSlideVar = `currentSlide${[...document.querySelectorAll('.project-details')].indexOf(selectedSection)}`;
+            window[currentSlideVar] = 0;
+            showSlide(slides, window[currentSlideVar]);
+            if (!slideIntervals[currentSlideVar]) {
+                slideIntervals[currentSlideVar] = setInterval(nextSlide(slides, currentSlideVar), 2000);
+            }
+        }
+    }
+}
+
+function showSlide(slides, index) {
+    slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+    });
+}
+
+function nextSlide(slides, currentSlideVar) {
+    return () => {
+        window[currentSlideVar] = (window[currentSlideVar] + 1) % slides.length;
+        showSlide(slides, window[currentSlideVar]);
+    };
 }

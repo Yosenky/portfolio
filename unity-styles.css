@@ -12,11 +12,11 @@
     --hover-border-color: #00d1d1; /* Slightly muted border on hover */
     --selected-bg-color: #2a2a2a;
     --selected-border-color: #ff00ff;
-    --selection-animation-duration: 0.3s; 
+    --selection-animation-duration: 0.3s;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     line-height: 1.6;
     color: var(--text-color);
     margin: 0;
@@ -41,6 +41,14 @@ h1, h2, h3 {
     text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
 }
 
+p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 1em;
+}
+
 nav {
     background-color: rgba(26, 26, 26, 0.9);
     padding: 15px 0;
@@ -63,7 +71,7 @@ nav ul li {
     margin: 0 15px;
 }
 
-nav ul li a {
+.navbar a {
     color: var(--link-color);
     text-decoration: none;
     padding: 8px 15px;
@@ -72,9 +80,10 @@ nav ul li a {
     font-weight: bold;
 }
 
-nav ul li a:hover {
+.navbar a:hover {
     background-color: rgba(0, 255, 255, 0.1);
     color: #ffffff;
+    text-decoration: none;
 }
 
 .content {
@@ -92,10 +101,11 @@ nav ul li a:hover {
     max-width: 30%;
     padding-right: 20px;
     border-right: 2px solid var(--accent-color);
+    position: -webkit-sticky; /* For Safari */
     position: sticky;
     top: 80px; /* Adjust based on header/nav height */
-    height: calc(100vh - 80px); /* Adjust based on header/nav height */
     overflow-y: auto;
+    max-height: calc(100vh - 80px - 40px); /* Adjust for footer height */
 }
 
 .project-title {
@@ -105,30 +115,30 @@ nav ul li a:hover {
     margin-bottom: 20px;
     background-color: #222222;
     border: 2px solid var(--accent-color);
-    border-radius: 10px; /* Rounded corners */
-    padding: 15px; /* More padding for better clickability */
+    border-radius: 10px;
+    padding: 15px;
     transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.3s;
 }
 
 .project-title:hover {
     background-color: var(--hover-bg-color);
     border-color: var(--hover-border-color);
-    transform: translateY(-2px); /* Slight lift on hover */
-    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.3); /* Shadow effect on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.3);
 }
 
 .project-title.selected {
     background-color: var(--selected-bg-color);
     border-color: var(--selected-border-color);
     border-width: 3px;
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5); /* Enhanced shadow */
-    animation: none; /* Ensure no arrow animation */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
+    animation: none;
 }
 
 .project-info {
     font-size: 0.85em;
     color: rgba(255, 255, 255, 0.9);
-    margin: 5px 0 0 0; /* Separate the description from the name */
+    margin: 5px 0 0 0;
     padding-top: 5px;
     border-top: 1px solid var(--accent-color);
 }
@@ -200,25 +210,20 @@ footer {
     box-shadow: 0 0 10px var(--accent-color);
 }
 
-/* Force the link color to always be the light blue (accent color) */
 a {
     color: var(--accent-color); /* Light blue */
     text-decoration: none; /* Remove underline */
-    transition: color 0.3s ease; /* Smooth color transition */
+    transition: color 0.3s ease;
 }
 
-/* Ensure the visited links stay light blue */
 a:visited {
     color: var(--accent-color); /* Maintain light blue on visited links */
 }
 
-/* On hover, maintain the light blue color and add a background effect */
 a:hover {
     color: var(--accent-color); /* Keep the light blue */
-    text-decoration: underline; /* Optional: add underline on hover */
 }
 
-/* On focus, keep the light blue as well */
 a:focus {
     color: var(--accent-color);
 }
@@ -245,21 +250,42 @@ a:focus {
     border-color: var(--secondary-accent);
 }
 
-/* Floppy Bird specific media styles */
-.floppy-bird-media {
+/* Floppy Bird and Space Cowboy specific media styles */
+.floppy-bird-media,
+.space-cowboy-media {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
 }
 
-.image-slideshow {
+.looping-gif {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px; /* Add some space below the GIF */
+}
+
+.looping-gif img {
+    max-width: 100%;
+    max-height: 300px; /* Adjust height here */
+    border: 2px solid var(--accent-color);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+.image-slideshow-wrapper {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     width: auto; /* Allow flexible width */
     height: auto; /* Allow flexible height */
+}
+
+.image-slideshow {
+    position: relative;
+    width: auto;
+    height: auto;
     max-width: 500px;
     overflow: hidden;
     border: 2px solid var(--accent-color);
@@ -278,44 +304,45 @@ a:focus {
     display: block;
 }
 
-.slideshow-controls {
-    margin-top: 10px;
-    display: flex;
-    justify-content: space-between;
-    width: 150px; /* Wider */
-}
-
-.slideshow-controls button {
+.prev, .next {
     background-color: var(--button-bg-color);
     color: var(--text-color);
     border: none;
     cursor: pointer;
-    padding: 10px 20px; /* Wider padding */
-    border-radius: 5px;
+    padding: 15px 30px; /* Increased padding */
+    border-radius: 10px; /* Slightly more rounded */
     transition: background-color 0.3s, transform 0.3s;
-    font-size: 1.5rem;
+    font-size: 1.5rem; /* Maintain large font size */
+    margin: 0 10px; /* Add margin for spacing */
 }
 
-.slideshow-controls button:hover {
+.prev:hover, .next:hover {
     background-color: var(--button-hover-bg-color);
     transform: scale(1.1); /* Slightly enlarge on hover */
+    box-shadow: 0 0 10px var(--button-hover-bg-color); /* Add shadow on hover */
 }
 
-/* Ensure "Overview" and "Gameplay" text is left-aligned */
+.slide-indicators {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.indicator {
+    height: 10px;
+    width: 10px;
+    background-color: var(--button-bg-color);
+    border-radius: 50%;
+    margin: 0 5px;
+    transition: background-color 0.3s;
+}
+
+.indicator.active {
+    background-color: var(--accent-color);
+}
+
 .overview,
 .gameplay {
     text-align: left;
     font-size: 1.1rem; /* Adjust size here */
-}
-
-.looping-gif {
-    margin-bottom: 20px; /* Add some space below the GIF */
-}
-
-.looping-gif img {
-    max-width: 100%;
-    max-height: 300px; /* Adjust height here */
-    border: 2px solid var(--accent-color);
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
 }
