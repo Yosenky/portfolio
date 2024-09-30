@@ -1,15 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
+
 :root {
     --bg-color: #0a0a0a;
     --text-color: #e0e0e0;
-    --accent-color: #00d1d1;
+    --accent-color: #00ffff;
+    --inactive-color: #555555;
     --secondary-accent: #ff00ff;
-    --button-bg-color: #005555; /* New shade for button background */
-    --button-hover-bg-color: #008888; /* Hover shade for button background */
     --header-bg: #1a1a1a;
     --content-bg: #1e1e1e;
     --link-color: #4de9e9;
     --hover-bg-color: #333333;
-    --hover-border-color: #00d1d1; /* Slightly muted border on hover */
+    --hover-border-color: #00ffff;
     --selected-bg-color: #2a2a2a;
     --selected-border-color: #ff00ff;
     --selection-animation-duration: 0.3s;
@@ -38,7 +39,7 @@ header {
 h1, h2, h3 {
     font-family: 'Orbitron', sans-serif;
     color: var(--accent-color);
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);  /* Ensure vibrant and bright text */
 }
 
 p {
@@ -49,6 +50,7 @@ p {
     margin-bottom: 1em;
 }
 
+/* Updated Navigation Bar Styling */
 nav {
     background-color: rgba(26, 26, 26, 0.9);
     padding: 15px 0;
@@ -71,7 +73,7 @@ nav ul li {
     margin: 0 15px;
 }
 
-.navbar a {
+nav ul li a {
     color: var(--link-color);
     text-decoration: none;
     padding: 8px 15px;
@@ -80,10 +82,38 @@ nav ul li {
     font-weight: bold;
 }
 
-.navbar a:hover {
+nav ul li a:hover {
     background-color: rgba(0, 255, 255, 0.1);
     color: #ffffff;
     text-decoration: none;
+}
+
+/* Updated Contact Links Styling */
+.contact-links {
+    font-size: 0.9em;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: var(--header-bg); /* Ensure it matches the nav background */
+    padding: 10px 0; /* Adjust padding to match example */
+}
+
+.contact-links a {
+    color: var(--accent-color);
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 5px 10px;
+    border: 1px solid var(--accent-color);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);  /* Ensure vibrant and bright links */
+}
+
+.contact-links a:hover {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    box-shadow: 0 0 10px var(--accent-color);
 }
 
 .content {
@@ -168,7 +198,7 @@ nav ul li {
 
 .project-separator {
     width: 80%;
-    border: 1px solid var(--accent-color);
+    border: 1px solid var (--accent-color); 
     margin: 20px auto;
 }
 
@@ -184,30 +214,6 @@ footer {
     background-color: var(--header-bg);
     color: var(--text-color);
     border-top: 2px solid var(--secondary-accent);
-}
-
-.contact-links {
-    font-size: 0.9em;
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.contact-links a {
-    color: var(--accent-color);
-    text-decoration: none;
-    margin: 0 10px;
-    padding: 5px 10px;
-    border: 1px solid var(--accent-color);
-    border-radius: 20px;
-    transition: all 0.3s ease;
-}
-
-.contact-links a:hover {
-    background-color: var(--accent-color);
-    color: var(--bg-color);
-    box-shadow: 0 0 10px var(--accent-color);
 }
 
 a {
@@ -319,7 +325,7 @@ a:focus {
 .prev:hover, .next:hover {
     background-color: var(--button-hover-bg-color);
     transform: scale(1.1); /* Slightly enlarge on hover */
-    box-shadow: 0 0 10px var(--button-hover-bg-color); /* Add shadow on hover */
+    box-shadow: 0 0 10px var (--button-hover-bg-color); /* Add shadow on hover */
 }
 
 .slide-indicators {

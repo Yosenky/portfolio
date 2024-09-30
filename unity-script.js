@@ -40,34 +40,36 @@ document.addEventListener('DOMContentLoaded', () => {
             const prev = prevSlide(slides, currentSlideVar);
 
             if (slideIntervals[currentSlideVar]) clearInterval(slideIntervals[currentSlideVar]);
-            slideIntervals[currentSlideVar] = setInterval(next, 2000);
+            slideIntervals[currentSlideVar] = setInterval(next, 1500);
 
             nextButtons[idx].addEventListener('click', () => {
                 next();
                 clearInterval(slideIntervals[currentSlideVar]);
-                slideIntervals[currentSlideVar] = setInterval(next, 2000);
+                slideIntervals[currentSlideVar] = setInterval(next, 1500);
             });
 
             prevButtons[idx].addEventListener('click', () => {
                 prev();
                 clearInterval(slideIntervals[currentSlideVar]);
-                slideIntervals[currentSlideVar] = setInterval(next, 2000);
+                slideIntervals[currentSlideVar] = setInterval(next, 1500);
             });
         });
     }
 
     // Handle project title selection
-    projectTitles.forEach((title) => {
+    projectTitles.forEach(title => {
         title.addEventListener('click', () => {
             projectTitles.forEach(item => item.classList.remove('selected'));
             title.classList.add('selected');
             const projectId = title.getAttribute("onclick").match(/'([^']+)'/)[1];
             toggleProjectDetails(projectId);
+            scrollToContent(); // Ensure the scroll happens after toggling project details
         });
     });
 
     // Initially select "Space Cowboy Platformer"
-    document.querySelector('.project-title.selected').click();
+    projectTitles[0].click();
+    initSlideshows(); // Init slideshows on page load
 });
 
 function toggleProjectDetails(projectId) {
@@ -84,7 +86,7 @@ function toggleProjectDetails(projectId) {
             window[currentSlideVar] = 0;
             showSlide(slides, window[currentSlideVar]);
             if (!slideIntervals[currentSlideVar]) {
-                slideIntervals[currentSlideVar] = setInterval(nextSlide(slides, currentSlideVar), 2000);
+                slideIntervals[currentSlideVar] = setInterval(nextSlide(slides, currentSlideVar), 1500);
             }
         }
     }
